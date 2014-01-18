@@ -26,4 +26,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+// @param dists  a mutablelist of 
+- (void) calculate
+
 @end

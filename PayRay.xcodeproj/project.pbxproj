@@ -22,6 +22,8 @@
 		15C148F5188A3CC1004EBAC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C148D4188A3CC1004EBAC0 /* UIKit.framework */; };
 		15C148FD188A3CC1004EBAC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15C148FB188A3CC1004EBAC0 /* InfoPlist.strings */; };
 		15C148FF188A3CC1004EBAC0 /* PayRayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C148FE188A3CC1004EBAC0 /* PayRayTests.m */; };
+		15C14909188A3D36004EBAC0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C14908188A3D36004EBAC0 /* CoreLocation.framework */; };
+		15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490B188A6601004EBAC0 /* UsersDistance.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		15C148FA188A3CC1004EBAC0 /* PayRayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PayRayTests-Info.plist"; sourceTree = "<group>"; };
 		15C148FC188A3CC1004EBAC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15C148FE188A3CC1004EBAC0 /* PayRayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayRayTests.m; sourceTree = "<group>"; };
+		15C14908188A3D36004EBAC0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		15C1490A188A6601004EBAC0 /* UsersDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersDistance.h; sourceTree = "<group>"; };
+		15C1490B188A6601004EBAC0 /* UsersDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersDistance.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15C14909188A3D36004EBAC0 /* CoreLocation.framework in Frameworks */,
 				15C148D3188A3CC1004EBAC0 /* CoreGraphics.framework in Frameworks */,
 				15C148D5188A3CC1004EBAC0 /* UIKit.framework in Frameworks */,
 				15C148D1188A3CC1004EBAC0 /* Foundation.framework in Frameworks */,
@@ -103,6 +109,7 @@
 		15C148CF188A3CC1004EBAC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				15C14908188A3D36004EBAC0 /* CoreLocation.framework */,
 				15C148D0188A3CC1004EBAC0 /* Foundation.framework */,
 				15C148D2188A3CC1004EBAC0 /* CoreGraphics.framework */,
 				15C148D4188A3CC1004EBAC0 /* UIKit.framework */,
@@ -122,6 +129,8 @@
 				15C148E9188A3CC1004EBAC0 /* ViewController.m */,
 				15C148EB188A3CC1004EBAC0 /* Images.xcassets */,
 				15C148D7188A3CC1004EBAC0 /* Supporting Files */,
+				15C1490A188A6601004EBAC0 /* UsersDistance.h */,
+				15C1490B188A6601004EBAC0 /* UsersDistance.m */,
 			);
 			path = PayRay;
 			sourceTree = "<group>";
@@ -256,6 +265,7 @@
 				15C148EA188A3CC1004EBAC0 /* ViewController.m in Sources */,
 				15C148E1188A3CC1004EBAC0 /* AppDelegate.m in Sources */,
 				15C148DD188A3CC1004EBAC0 /* main.m in Sources */,
+				15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
