@@ -9,12 +9,6 @@
 #import "CalcOrderUtil.h"
 #import "UsersDistance.h"
 
-struct Triangle
-{
-    NSString* a;
-    NSString* b;
-};
-
 @implementation CalcOrderUtil
 
 @synthesize clockwiseOrder;
@@ -32,12 +26,26 @@ struct Triangle
     NSMutableArray* result = [[NSMutableArray alloc] init];
     NSArray* allKeys = [orientations allKeys];
     NSMutableDictionary* distanceArray = [self calcDistancesArray: distances fromPerson: person withPeople: allKeys];
-    
+    [result addObject:person];
     NSMutableArray* neighbors = [self findNeighborsOf:person usingDistances:[distanceArray objectForKey:person]];
     NSString* right = [neighbors objectAtIndex:1];
-    
-    
-    
+    NSString* old = person;
+    while ([right isEqualToString:person] == NO) {
+        [result addObject:right];
+        neighbors = [self findNeighborsOf:right usingDistances:[distanceArray objectForKey:right]];
+        NSString* neighborA = [neighbors objectAtIndex:0];
+        NSString* neighborB = [neighbors objectAtIndex:1];
+        if ([neighborA isEqualToString:old] == YES || [neighborB isEqualToString:old] == YES) {
+            if ([neighborA isEqualToString:old] == YES) {
+                right = neighborB;
+            } else {
+                right = neighborA;
+            }
+            old = right;
+        } else {
+            NSLog(@"Error in finding circle");
+        }
+    }
     return result;
 }
 
@@ -59,7 +67,7 @@ struct Triangle
                     double distC = [[[distances objectForKey:a] objectForKey:b] doubleValue];
                     double distB = [[[distances objectForKey:a] objectForKey:person] doubleValue];
                     double distA = [[[distances objectForKey:b] objectForKey:person] doubleValue];
-                    double theta = ((pow(distA,2) + pow(distB,2) - pow(distC,2)) / (2 * distB * distA));
+                    double theta = atan((pow(distA,2) + pow(distB,2) - pow(distC,2)) / (2 * distB * distA));
                     if (theta > maxTheta) {
                         maxTheta = theta;
                         [maxNeighbors replaceObjectAtIndex:0 withObject:a];
