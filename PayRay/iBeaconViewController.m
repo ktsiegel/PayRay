@@ -9,6 +9,7 @@
 #import "iBeaconViewController.h"
 #import "ViewController.h"
 #import "LocationModel.h"
+#import <Firebase/Firebase.h>
 
 @interface iBeaconViewController ()
 
@@ -21,9 +22,11 @@
     BOOL _inProgress;
     NSMutableArray *_rangedBeacons;
     BOOL _master;
+    BOOL _slave;
     NSString* _uuid;
-    NSString* userId;
-    
+    NSString* _userId;
+    Firebase* _baseRef;
+    int _table;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,8 +38,7 @@
         _locationManager.delegate = self;
         _inProgress = NO;
         _uuid = @"7AAF1FFA-7EA5-44A5-B4E8-0A8BBDF0B775";
-        _userId = //get from coreData
-        
+        _baseRef = [[Firebase alloc] initWithUrl:@"https://pay-ray.firebaseIO-demo.com"];
     }
     return self;
 }
@@ -51,9 +53,8 @@
 {
     if (_region)
         return;
-    NSString* uuid = @"7AAF1FFA-7EA5-44A5-B4E8-0A8BBDF0B775";
     NSString* identifier = @"PayRay";
-    NSUUID *proximityUUID = [[NSUUID alloc] initWithUUIDString:uuid];
+    NSUUID *proximityUUID = [[NSUUID alloc] initWithUUIDString:_uuid];
     _region = [[CLBeaconRegion alloc] initWithProximityUUID:proximityUUID identifier:identifier];
 }
 
@@ -94,7 +95,31 @@
     NSLog(@"Turned off ranging.");
 }
 
-- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
+-(NSMutableArray*)addUsers:(NSArray*)beacons toTable:(int)tableId
+{
+    NSMutableArray* users = [[NSMutableArray alloc] init];
+    for (CLBeacon *beacon in beacons) {
+        int majorValue = beacon.major.integerValue;
+        int minorValue = beacon.minor.integerValue;
+        NSString* beaconUserId = [NSString stringWithFormat:@"%04i%04i",majorValue, minorValue];
+        [users addObject:beaconUserId];
+        Firebase* tableUsersRef = [_baseRef childByAppendingPath:[NSString stringWithFormat:@"TABLES/%i/table_users/%@", tableId, beaconUserId]];
+        [tableUsersRef setValue:@{}];
+    }
+    return users;
+}
+
+-(void)addTable:(int)tableId toUsers:(NSMutableArray*)users
+{
+    for (NSString* user in users) {
+        Firebase* tableUsersRef = [_baseRef childByAppendingPath:[NSString stringWithFormat:@"USERS/%@", user]];
+        [tableUsersRef updateChildValues:@{@"table": [NSNumber numberWithInt: tableId]}];
+    }
+}
+
+
+
+- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray*)beacons inRegion:(CLBeaconRegion *)region
 {
     if (beacons.count == 0) {
         NSLog(@"No beacons found nearby.");
@@ -103,26 +128,46 @@
               [beacons count] > 1 ? @"beacons" : @"beacon");
     }
     if(_master) {
+        //We are the master: add everyone else in range to the table only once
         _master = false;
-        //create new table on firebase
+        //Add a table to TABLES
+        Firebase* tablesRef = [_baseRef childByAppendingPath:@"TABLES"];
+        [tablesRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            int newId = snapshot.childrenCount;
+            
+            //First, add yourself to the table
+            NSString* newIdString = [NSString stringWithFormat:@"%i/table_users/%@",newId, _userId];
+            [[tablesRef childByAppendingPath:newIdString] setValue:@{}];
+            
+            //Next, add all users to this table
+            NSMutableArray* users = [self addUsers:beacons toTable:newId];
+            
+            //Then, add yourself to the new list of user ids
+            [users addObject:_userId];
+            
+            //Finally, add the table to all users (including yourself). This will trigger a change event, which will set _slave = true
+            [self addTable:newId toUsers:users];
+        }];
     }
-    for (CLBeacon *beacon in beacons) {
-        int majorValue = beacon.major.integerValue;
-        int minorValue = beacon.minor.integerValue;
-        NSString* beaconUserId = [NSString stringWithFormat:@"%i%i",majorValue, minorValue];
-        
-        }
-        if (isNewBeacon) {
-            if (!indexPaths)
-                indexPaths = [NSMutableArray new];
-            [indexPaths addObject:[NSIndexPath indexPathForRow:row inSection:NTDetectedBeaconsSection]];
-        }
-        row++;
+    else if(_slave) {
+        //We are a slave: get the distance to all other users and upload it to Firebase so the master can use it
+        _slave = false;
+        Firebase* tableUsersRef = [_baseRef childByAppendingPath:[NSString stringWithFormat:@"TABLES/%i/table_users/%@", tableId, beaconUserId]];
+
     }
-    
-    return indexPaths;
+}
+
+-(void)getDistancesToBeacons: (NSArray*)beacons {
     
 }
+
+-(double)getDistanceToBeacon: (CLBeacon*)beacon {
+    double accuracy = beacon.accuracy;
+    return accuracy;
+    
+}
+
+
 
 - (void)viewDidLoad
 {
