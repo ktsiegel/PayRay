@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PayRay/SpaceshipScene.m"
-            timestampString = "411728803.82755"
+            timestampString = "411733188.84728"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "-createSceneContents"
             landmarkType = "5">
          </BreakpointContent>
