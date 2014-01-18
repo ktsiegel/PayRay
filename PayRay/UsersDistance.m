@@ -14,7 +14,7 @@
 @synthesize personB;
 @synthesize dist;
 
-- (id)initWithPerson: (NSString*)person1 andPerson: (NSString*)person2 withDistance: (NSInteger*) distance {
+- (id)initWithPerson: (NSString*)person1 andPerson: (NSString*)person2 withDistance: (NSNumber*) distance {
     self = [super init];
     if (self) {
         self.personA = person1;
