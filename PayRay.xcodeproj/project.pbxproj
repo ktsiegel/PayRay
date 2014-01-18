@@ -25,10 +25,22 @@
 		15C14909188A3D36004EBAC0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C14908188A3D36004EBAC0 /* CoreLocation.framework */; };
 		15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490B188A6601004EBAC0 /* UsersDistance.m */; };
 		15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */; };
+		3395FEE4188B0D6C00326E47 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEE3188B0D6C00326E47 /* LoginViewController.m */; };
+		3395FEE6188B120600326E47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3395FEE5188B120600326E47 /* CoreData.framework */; };
+		3395FEE9188B122100326E47 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEE7188B122100326E47 /* UserModel.xcdatamodeld */; };
+		3395FEEF188B1BB900326E47 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEEE188B1BB900326E47 /* User.m */; };
+		3395FEF1188B1D9200326E47 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3395FEF0188B1D9200326E47 /* libstdc++.6.0.9.dylib */; };
+		3395FEF3188B1DCF00326E47 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3395FEF2188B1DCF00326E47 /* TesseractOCR.framework */; };
+		3395FEF9188B1FAF00326E47 /* eng.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 3395FEF5188B1FAF00326E47 /* eng.traineddata */; };
+		3395FEFA188B1FAF00326E47 /* equ.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 3395FEF6188B1FAF00326E47 /* equ.traineddata */; };
+		3395FEFB188B1FAF00326E47 /* grc.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 3395FEF7188B1FAF00326E47 /* grc.traineddata */; };
+		3395FEFC188B1FAF00326E47 /* ita.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 3395FEF8188B1FAF00326E47 /* ita.traineddata */; };
+		3395FEFF188B1FEE00326E47 /* ReceiptPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */; };
 		A0C1AF35188AFCAF00E83ACA /* iBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF2E188AFCAF00E83ACA /* iBeaconViewController.m */; };
 		A0C1AF37188AFCAF00E83ACA /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF32188AFCAF00E83ACA /* SpaceshipScene.m */; };
-		A0C1AF38188AFCAF00E83ACA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF34188AFCAF00E83ACA /* User.m */; };
 		A0C1AF3B188AFF8000E83ACA /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF3A188AFF8000E83ACA /* LocationModel.m */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		15C148F6188A3CC1004EBAC0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,12 +77,24 @@
 		15C1490B188A6601004EBAC0 /* UsersDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersDistance.m; sourceTree = "<group>"; };
 		15C1490D188A6A7C004EBAC0 /* CalcOrderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalcOrderUtil.h; sourceTree = "<group>"; };
 		15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalcOrderUtil.m; sourceTree = "<group>"; };
+		3395FEE2188B0D6C00326E47 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3395FEE3188B0D6C00326E47 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3395FEE5188B120600326E47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3395FEE8188B122100326E47 /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
+		3395FEED188B1BB900326E47 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3395FEEE188B1BB900326E47 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		3395FEF0188B1D9200326E47 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		3395FEF2188B1DCF00326E47 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = "../../Downloads/Tesseract-OCR-iOS-master/Products/TesseractOCR.framework"; sourceTree = "<group>"; };
+		3395FEF5188B1FAF00326E47 /* eng.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = eng.traineddata; sourceTree = "<group>"; };
+		3395FEF6188B1FAF00326E47 /* equ.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = equ.traineddata; sourceTree = "<group>"; };
+		3395FEF7188B1FAF00326E47 /* grc.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = grc.traineddata; sourceTree = "<group>"; };
+		3395FEF8188B1FAF00326E47 /* ita.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = ita.traineddata; sourceTree = "<group>"; };
+		3395FEFD188B1FEE00326E47 /* ReceiptPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptPicViewController.h; sourceTree = "<group>"; };
+		3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptPicViewController.m; sourceTree = "<group>"; };
 		A0C1AF2D188AFCAF00E83ACA /* iBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBeaconViewController.h; sourceTree = "<group>"; };
 		A0C1AF2E188AFCAF00E83ACA /* iBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBeaconViewController.m; sourceTree = "<group>"; };
 		A0C1AF31188AFCAF00E83ACA /* SpaceshipScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceshipScene.h; sourceTree = "<group>"; };
 		A0C1AF32188AFCAF00E83ACA /* SpaceshipScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceshipScene.m; sourceTree = "<group>"; };
-		A0C1AF33188AFCAF00E83ACA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		A0C1AF34188AFCAF00E83ACA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		A0C1AF39188AFF8000E83ACA /* LocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationModel.h; sourceTree = "<group>"; };
 		A0C1AF3A188AFF8000E83ACA /* LocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +104,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3395FEF3188B1DCF00326E47 /* TesseractOCR.framework in Frameworks */,
+				3395FEF1188B1D9200326E47 /* libstdc++.6.0.9.dylib in Frameworks */,
+				3395FEE6188B120600326E47 /* CoreData.framework in Frameworks */,
 				15C14909188A3D36004EBAC0 /* CoreLocation.framework in Frameworks */,
 				15C148D3188A3CC1004EBAC0 /* CoreGraphics.framework in Frameworks */,
 				15C148D5188A3CC1004EBAC0 /* UIKit.framework in Frameworks */,
@@ -103,6 +130,7 @@
 		15C148C4188A3CC1004EBAC0 = {
 			isa = PBXGroup;
 			children = (
+				3395FEF4188B1FAF00326E47 /* tessdata */,
 				15C148D6188A3CC1004EBAC0 /* PayRay */,
 				15C148F8188A3CC1004EBAC0 /* PayRayTests */,
 				15C148CF188A3CC1004EBAC0 /* Frameworks */,
@@ -122,6 +150,9 @@
 		15C148CF188A3CC1004EBAC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3395FEF2188B1DCF00326E47 /* TesseractOCR.framework */,
+				3395FEF0188B1D9200326E47 /* libstdc++.6.0.9.dylib */,
+				3395FEE5188B120600326E47 /* CoreData.framework */,
 				15C14908188A3D36004EBAC0 /* CoreLocation.framework */,
 				15C148D0188A3CC1004EBAC0 /* Foundation.framework */,
 				15C148D2188A3CC1004EBAC0 /* CoreGraphics.framework */,
@@ -140,8 +171,6 @@
 				A0C1AF32188AFCAF00E83ACA /* SpaceshipScene.m */,
 				A0C1AF39188AFF8000E83ACA /* LocationModel.h */,
 				A0C1AF3A188AFF8000E83ACA /* LocationModel.m */,
-				A0C1AF33188AFCAF00E83ACA /* User.h */,
-				A0C1AF34188AFCAF00E83ACA /* User.m */,
 				15C148DF188A3CC1004EBAC0 /* AppDelegate.h */,
 				15C148E0188A3CC1004EBAC0 /* AppDelegate.m */,
 				15C148E2188A3CC1004EBAC0 /* Main_iPhone.storyboard */,
@@ -154,6 +183,13 @@
 				15C1490B188A6601004EBAC0 /* UsersDistance.m */,
 				15C1490D188A6A7C004EBAC0 /* CalcOrderUtil.h */,
 				15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */,
+				3395FEE2188B0D6C00326E47 /* LoginViewController.h */,
+				3395FEE3188B0D6C00326E47 /* LoginViewController.m */,
+				3395FEE7188B122100326E47 /* UserModel.xcdatamodeld */,
+				3395FEED188B1BB900326E47 /* User.h */,
+				3395FEEE188B1BB900326E47 /* User.m */,
+				3395FEFD188B1FEE00326E47 /* ReceiptPicViewController.h */,
+				3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */,
 			);
 			path = PayRay;
 			sourceTree = "<group>";
@@ -185,6 +221,18 @@
 				15C148FB188A3CC1004EBAC0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3395FEF4188B1FAF00326E47 /* tessdata */ = {
+			isa = PBXGroup;
+			children = (
+				3395FEF5188B1FAF00326E47 /* eng.traineddata */,
+				3395FEF6188B1FAF00326E47 /* equ.traineddata */,
+				3395FEF7188B1FAF00326E47 /* grc.traineddata */,
+				3395FEF8188B1FAF00326E47 /* ita.traineddata */,
+			);
+			name = tessdata;
+			path = "../../Downloads/Tesseract-OCR-iOS-master/TesseractOCR/tessdata";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,8 +311,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3395FEF9188B1FAF00326E47 /* eng.traineddata in Resources */,
+				3395FEFB188B1FAF00326E47 /* grc.traineddata in Resources */,
 				15C148E7188A3CC1004EBAC0 /* Main_iPad.storyboard in Resources */,
 				15C148EC188A3CC1004EBAC0 /* Images.xcassets in Resources */,
+				3395FEFC188B1FAF00326E47 /* ita.traineddata in Resources */,
+				3395FEFA188B1FAF00326E47 /* equ.traineddata in Resources */,
 				15C148E4188A3CC1004EBAC0 /* Main_iPhone.storyboard in Resources */,
 				15C148DB188A3CC1004EBAC0 /* InfoPlist.strings in Resources */,
 			);
@@ -286,12 +338,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0C1AF37188AFCAF00E83ACA /* SpaceshipScene.m in Sources */,
-				A0C1AF38188AFCAF00E83ACA /* User.m in Sources */,
 				A0C1AF35188AFCAF00E83ACA /* iBeaconViewController.m in Sources */,
 				15C148EA188A3CC1004EBAC0 /* ViewController.m in Sources */,
+				3395FEE4188B0D6C00326E47 /* LoginViewController.m in Sources */,
 				15C148E1188A3CC1004EBAC0 /* AppDelegate.m in Sources */,
 				A0C1AF3B188AFF8000E83ACA /* LocationModel.m in Sources */,
+				3395FEEF188B1BB900326E47 /* User.m in Sources */,
 				15C148DD188A3CC1004EBAC0 /* main.m in Sources */,
+				3395FEFF188B1FEE00326E47 /* ReceiptPicViewController.m in Sources */,
+				3395FEE9188B122100326E47 /* UserModel.xcdatamodeld in Sources */,
 				15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */,
 				15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */,
 			);
@@ -430,9 +485,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Kshitij/Downloads/Tesseract-OCR-iOS-master/Products",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";
 				INFOPLIST_FILE = "PayRay/PayRay-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -443,9 +503,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Kshitij/Downloads/Tesseract-OCR-iOS-master/Products",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";
 				INFOPLIST_FILE = "PayRay/PayRay-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -524,6 +589,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3395FEE7188B122100326E47 /* UserModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3395FEE8188B122100326E47 /* UserModel.xcdatamodel */,
+			);
+			currentVersion = 3395FEE8188B122100326E47 /* UserModel.xcdatamodel */;
+			path = UserModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 15C148C5188A3CC1004EBAC0 /* Project object */;
 }

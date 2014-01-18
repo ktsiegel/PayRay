@@ -77,9 +77,6 @@
                 NSString* b = [allKeys objectAtIndex:j];
                 if ([b isEqualToString:person] == NO && [b isEqualToString: a] == NO) {
                     //this is a triangle
-                    struct Triangle triangle;
-                    triangle.a = a;
-                    triangle.b = b;
                     double distC = [[[distances objectForKey:a] objectForKey:b] doubleValue];
                     double distB = [[[distances objectForKey:a] objectForKey:person] doubleValue];
                     double distA = [[[distances objectForKey:b] objectForKey:person] doubleValue];
