@@ -25,7 +25,6 @@
 		15C14909188A3D36004EBAC0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C14908188A3D36004EBAC0 /* CoreLocation.framework */; };
 		15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490B188A6601004EBAC0 /* UsersDistance.m */; };
 		15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +63,6 @@
 		15C1490B188A6601004EBAC0 /* UsersDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersDistance.m; sourceTree = "<group>"; };
 		15C1490D188A6A7C004EBAC0 /* CalcOrderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalcOrderUtil.h; sourceTree = "<group>"; };
 		15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalcOrderUtil.m; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,10 +124,6 @@
 		15C148D6188A3CC1004EBAC0 /* PayRay */ = {
 			isa = PBXGroup;
 			children = (
-				A0C1AF1D188A71F500E83ACA /* HelloScene.h */,
-				A0C1AF1E188A71F500E83ACA /* HelloScene.m */,
-				A0C1AF1F188A71F500E83ACA /* SpaceshipScene.h */,
-				A0C1AF1B188A71EA00E83ACA /* SpaceshipScene.m */,
 				15C148DF188A3CC1004EBAC0 /* AppDelegate.h */,
 				15C148E0188A3CC1004EBAC0 /* AppDelegate.m */,
 				15C148E2188A3CC1004EBAC0 /* Main_iPhone.storyboard */,
@@ -275,7 +269,6 @@
 			files = (
 				15C148EA188A3CC1004EBAC0 /* ViewController.m in Sources */,
 				15C148E1188A3CC1004EBAC0 /* AppDelegate.m in Sources */,
-				A0C1AF1C188A71EA00E83ACA /* SpaceshipScene.m in Sources */,
 				15C148DD188A3CC1004EBAC0 /* main.m in Sources */,
 				15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */,
 				15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */,
