@@ -20,6 +20,9 @@
     CLBeaconRegion *_region;
     BOOL _inProgress;
     NSMutableArray *_rangedBeacons;
+    BOOL _master;
+    NSString* _uuid;
+    NSString* userId;
     
 }
 
@@ -31,8 +34,17 @@
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
         _inProgress = NO;
+        _uuid = @"7AAF1FFA-7EA5-44A5-B4E8-0A8BBDF0B775";
+        _userId = //get from coreData
+        
     }
     return self;
+}
+
+-(void)createTable
+{
+    _master = true;
+    [self startRangingForBeacons];
 }
 
 - (void)createBeaconRegion
@@ -82,13 +94,6 @@
     NSLog(@"Turned off ranging.");
 }
 
-
--(void)getBeaconsWithinRange
-{
-    _locationManager = [[CLLocationManager alloc] init];
-    _locationManager.delegate = self;
-}
-
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
     if (beacons.count == 0) {
@@ -97,6 +102,25 @@
         NSLog(@"Found %lu %@.", (unsigned long)[beacons count],
               [beacons count] > 1 ? @"beacons" : @"beacon");
     }
+    if(_master) {
+        _master = false;
+        //create new table on firebase
+    }
+    for (CLBeacon *beacon in beacons) {
+        int majorValue = beacon.major.integerValue;
+        int minorValue = beacon.minor.integerValue;
+        NSString* beaconUserId = [NSString stringWithFormat:@"%i%i",majorValue, minorValue];
+        
+        }
+        if (isNewBeacon) {
+            if (!indexPaths)
+                indexPaths = [NSMutableArray new];
+            [indexPaths addObject:[NSIndexPath indexPathForRow:row inSection:NTDetectedBeaconsSection]];
+        }
+        row++;
+    }
+    
+    return indexPaths;
     
 }
 
