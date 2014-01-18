@@ -41,4 +41,7 @@
     [(SpaceshipScene*)self.spriteView.scene populate:self.people];
 }
 
+// @param dists  a mutablelist of 
+- (void) calculate
+
 @end
