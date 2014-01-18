@@ -24,6 +24,7 @@
 		15C148FF188A3CC1004EBAC0 /* PayRayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C148FE188A3CC1004EBAC0 /* PayRayTests.m */; };
 		15C14909188A3D36004EBAC0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C14908188A3D36004EBAC0 /* CoreLocation.framework */; };
 		15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490B188A6601004EBAC0 /* UsersDistance.m */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		15C14908188A3D36004EBAC0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		15C1490A188A6601004EBAC0 /* UsersDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersDistance.h; sourceTree = "<group>"; };
 		15C1490B188A6601004EBAC0 /* UsersDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersDistance.m; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +69,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				15C14909188A3D36004EBAC0 /* CoreLocation.framework in Frameworks */,
+
+				A02545AB188A48F3001B327F /* SpriteKit.framework in Frameworks */,
 				15C148D3188A3CC1004EBAC0 /* CoreGraphics.framework in Frameworks */,
 				15C148D5188A3CC1004EBAC0 /* UIKit.framework in Frameworks */,
 				15C148D1188A3CC1004EBAC0 /* Foundation.framework in Frameworks */,
@@ -127,6 +132,10 @@
 				15C148E5188A3CC1004EBAC0 /* Main_iPad.storyboard */,
 				15C148E8188A3CC1004EBAC0 /* ViewController.h */,
 				15C148E9188A3CC1004EBAC0 /* ViewController.m */,
+				A02545AF188A4A67001B327F /* HelloScene.h */,
+				A02545B0188A4A67001B327F /* HelloScene.m */,
+				A02545B2188A4F02001B327F /* SpaceshipScene.h */,
+				A02545B3188A4F02001B327F /* SpaceshipScene.m */,
 				15C148EB188A3CC1004EBAC0 /* Images.xcassets */,
 				15C148D7188A3CC1004EBAC0 /* Supporting Files */,
 				15C1490A188A6601004EBAC0 /* UsersDistance.h */,
@@ -263,6 +272,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C148EA188A3CC1004EBAC0 /* ViewController.m in Sources */,
+				A02545B1188A4A67001B327F /* HelloScene.m in Sources */,
+				A02545B4188A4F02001B327F /* SpaceshipScene.m in Sources */,
 				15C148E1188A3CC1004EBAC0 /* AppDelegate.m in Sources */,
 				15C148DD188A3CC1004EBAC0 /* main.m in Sources */,
 				15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */,
@@ -484,6 +495,7 @@
 				15C14904188A3CC1004EBAC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15C14905188A3CC1004EBAC0 /* Build configuration list for PBXNativeTarget "PayRayTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +504,7 @@
 				15C14907188A3CC1004EBAC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
