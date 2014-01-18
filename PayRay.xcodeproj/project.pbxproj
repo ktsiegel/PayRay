@@ -25,8 +25,10 @@
 		15C14909188A3D36004EBAC0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C14908188A3D36004EBAC0 /* CoreLocation.framework */; };
 		15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490B188A6601004EBAC0 /* UsersDistance.m */; };
 		15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */; };
-/* End PBXBuildFile section */
-
+		A0C1AF35188AFCAF00E83ACA /* iBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF2E188AFCAF00E83ACA /* iBeaconViewController.m */; };
+		A0C1AF37188AFCAF00E83ACA /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF32188AFCAF00E83ACA /* SpaceshipScene.m */; };
+		A0C1AF38188AFCAF00E83ACA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF34188AFCAF00E83ACA /* User.m */; };
+		A0C1AF3B188AFF8000E83ACA /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF3A188AFF8000E83ACA /* LocationModel.m */; };
 /* Begin PBXContainerItemProxy section */
 		15C148F6188A3CC1004EBAC0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -63,6 +65,14 @@
 		15C1490B188A6601004EBAC0 /* UsersDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersDistance.m; sourceTree = "<group>"; };
 		15C1490D188A6A7C004EBAC0 /* CalcOrderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalcOrderUtil.h; sourceTree = "<group>"; };
 		15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalcOrderUtil.m; sourceTree = "<group>"; };
+		A0C1AF2D188AFCAF00E83ACA /* iBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBeaconViewController.h; sourceTree = "<group>"; };
+		A0C1AF2E188AFCAF00E83ACA /* iBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBeaconViewController.m; sourceTree = "<group>"; };
+		A0C1AF31188AFCAF00E83ACA /* SpaceshipScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceshipScene.h; sourceTree = "<group>"; };
+		A0C1AF32188AFCAF00E83ACA /* SpaceshipScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceshipScene.m; sourceTree = "<group>"; };
+		A0C1AF33188AFCAF00E83ACA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		A0C1AF34188AFCAF00E83ACA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		A0C1AF39188AFF8000E83ACA /* LocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationModel.h; sourceTree = "<group>"; };
+		A0C1AF3A188AFF8000E83ACA /* LocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +134,14 @@
 		15C148D6188A3CC1004EBAC0 /* PayRay */ = {
 			isa = PBXGroup;
 			children = (
+				A0C1AF2D188AFCAF00E83ACA /* iBeaconViewController.h */,
+				A0C1AF2E188AFCAF00E83ACA /* iBeaconViewController.m */,
+				A0C1AF31188AFCAF00E83ACA /* SpaceshipScene.h */,
+				A0C1AF32188AFCAF00E83ACA /* SpaceshipScene.m */,
+				A0C1AF39188AFF8000E83ACA /* LocationModel.h */,
+				A0C1AF3A188AFF8000E83ACA /* LocationModel.m */,
+				A0C1AF33188AFCAF00E83ACA /* User.h */,
+				A0C1AF34188AFCAF00E83ACA /* User.m */,
 				15C148DF188A3CC1004EBAC0 /* AppDelegate.h */,
 				15C148E0188A3CC1004EBAC0 /* AppDelegate.m */,
 				15C148E2188A3CC1004EBAC0 /* Main_iPhone.storyboard */,
@@ -267,8 +285,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0C1AF37188AFCAF00E83ACA /* SpaceshipScene.m in Sources */,
+				A0C1AF38188AFCAF00E83ACA /* User.m in Sources */,
+				A0C1AF35188AFCAF00E83ACA /* iBeaconViewController.m in Sources */,
 				15C148EA188A3CC1004EBAC0 /* ViewController.m in Sources */,
 				15C148E1188A3CC1004EBAC0 /* AppDelegate.m in Sources */,
+				A0C1AF3B188AFF8000E83ACA /* LocationModel.m in Sources */,
 				15C148DD188A3CC1004EBAC0 /* main.m in Sources */,
 				15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */,
 				15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */,
