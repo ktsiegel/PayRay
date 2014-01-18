@@ -16,9 +16,25 @@
 - (id)initWithMainPerson: (NSString*) identifier andDistances: (NSMutableArray*)distances andOrientations: (NSMutableDictionary*)orientations {
     self = [super init];
     if (self) {
-        self.clockwiseOrder = [self findOrderFromPerson:identifier WithDistances:distances andOrientations:orientations];
+        NSMutableArray* tempClockwiseOrder = [self findOrderFromPerson:identifier WithDistances:distances andOrientations:orientations];
+        NSString* personBearing = [tempClockwiseOrder objectAtIndex:[tempClockwiseOrder count]/4];
+        NSNumber* personOrientation = [orientations objectForKey:personBearing];
+        if ([personOrientation doubleValue] > M_PI) {
+            self.clockwiseOrder = [self reverseOrder: tempClockwiseOrder];
+        } else {
+            self.clockwiseOrder = tempClockwiseOrder;
+        }
     }
     return self;
+}
+
+-(NSMutableArray*) reverseOrder: (NSMutableArray*)arr {
+    NSMutableArray* narr = [[NSMutableArray alloc] init];
+    [narr addObject:[arr objectAtIndex:0]];
+    for (int i=(int)[arr count] - 1; i>0; i--) {
+        [narr addObject:[arr objectAtIndex:i]];
+    }
+    return narr;
 }
 
 -(NSMutableArray*) findOrderFromPerson: (NSString*) person WithDistances: (NSMutableArray*) distances andOrientations: (NSMutableDictionary*) orientations {
