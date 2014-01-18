@@ -9,5 +9,5 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface SpaceshipScene : SKScene
-
+- (void)newPersonWithPosition:(int) x :(int) y :(int)size :(NSString*)name;
 @end

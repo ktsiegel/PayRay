@@ -7,9 +7,13 @@
 //
 
 #import "SpaceshipScene.h"
+#import "ViewController.h"
 
 @interface SpaceshipScene ()
 @property BOOL contentCreated;
+@property int count;
+@property NSArray* people;
+@property ViewController* viewController;
 @end
 
 @implementation SpaceshipScene
@@ -20,35 +24,47 @@
         [self createSceneContents];
         self.contentCreated = YES;
     }
+    UIResponder *responder = view;
+    while (![responder isKindOfClass:[ViewController class]]) {
+        responder = [responder nextResponder];
+        if (nil == responder) {
+            break;
+        }
+    }
+    self.viewController=(ViewController *)responder;
+        [self.viewController spaceshipReady];
 }
 
 - (void)createSceneContents
 {
     self.backgroundColor = [SKColor blackColor];
     self.scaleMode = SKSceneScaleModeAspectFit;
-    SKSpriteNode *spaceship = [self newSpaceship];
-    spaceship.position = CGPointMake(CGRectGetMidX(self.frame),                              CGRectGetMidY(self.frame)-150);
-    [self addChild:spaceship];
+   SKShapeNode *ball=[self newCenter];
+    [self addChild:ball];
+    self.count=0;
 }
-- (SKSpriteNode *)newSpaceship
+
+- (SKShapeNode *)newCenter
 {
-    SKSpriteNode *hull = [[SKSpriteNode alloc] initWithColor:[SKColor grayColor] size:CGSizeMake(64,32)];
-    
-    SKAction *hover = [SKAction sequence:@[
-                                           [SKAction waitForDuration:1.0],
-                                           [SKAction moveByX:100 y:50.0 duration:1.0],
-                                           [SKAction waitForDuration:1.0],
-                                           [SKAction moveByX:-100.0 y:-50 duration:1.0]]];
-    [hull runAction: [SKAction repeatActionForever:hover]];
-    SKSpriteNode *light1 = [self newLight];
-    light1.position = CGPointMake(-28.0, 6.0);
-    [hull addChild:light1];
-    
-    SKSpriteNode *light2 = [self newLight];
-    light2.position = CGPointMake(28.0, 6.0);
-    [hull addChild:light2];
-    
-    return hull; }
+    SKShapeNode* ball = [[SKShapeNode alloc] init];
+    CGMutablePathRef myPath = CGPathCreateMutable();
+    CGPathAddArc(myPath, NULL, 0,0, 60, 0, M_PI*2, YES);
+    ball.path = myPath;
+    ball.fillColor = [SKColor blueColor];
+    ball.position = CGPointMake(self.size.width/2, self.size.height/2);
+    return ball;
+}
+
+- (void)newPersonWithPosition:(int) x :(int) y :(int)size :(NSString*)name
+{
+    SKShapeNode* ball = [[SKShapeNode alloc] init];
+    CGMutablePathRef myPath = CGPathCreateMutable();
+    CGPathAddArc(myPath, NULL, 0,0, size, 0, M_PI*2, YES);
+    ball.path = myPath;
+    ball.fillColor = [SKColor redColor];
+    ball.position = CGPointMake(x,y);
+    [self addChild:ball];
+}
 - (SKSpriteNode *)newLight
 {
     SKSpriteNode *light = [[SKSpriteNode alloc] initWithColor:[SKColor yellowColor] size:CGSizeMake(8,8)];
