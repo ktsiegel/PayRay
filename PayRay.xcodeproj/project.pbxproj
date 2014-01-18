@@ -22,6 +22,9 @@
 		15C148F5188A3CC1004EBAC0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C148D4188A3CC1004EBAC0 /* UIKit.framework */; };
 		15C148FD188A3CC1004EBAC0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15C148FB188A3CC1004EBAC0 /* InfoPlist.strings */; };
 		15C148FF188A3CC1004EBAC0 /* PayRayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C148FE188A3CC1004EBAC0 /* PayRayTests.m */; };
+		A02545AB188A48F3001B327F /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02545AA188A48F3001B327F /* SpriteKit.framework */; };
+		A02545B1188A4A67001B327F /* HelloScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A02545B0188A4A67001B327F /* HelloScene.m */; };
+		A02545B4188A4F02001B327F /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A02545B3188A4F02001B327F /* SpaceshipScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,11 @@
 		15C148FA188A3CC1004EBAC0 /* PayRayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PayRayTests-Info.plist"; sourceTree = "<group>"; };
 		15C148FC188A3CC1004EBAC0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15C148FE188A3CC1004EBAC0 /* PayRayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayRayTests.m; sourceTree = "<group>"; };
+		A02545AA188A48F3001B327F /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		A02545AF188A4A67001B327F /* HelloScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloScene.h; sourceTree = "<group>"; };
+		A02545B0188A4A67001B327F /* HelloScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloScene.m; sourceTree = "<group>"; };
+		A02545B2188A4F02001B327F /* SpaceshipScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceshipScene.h; sourceTree = "<group>"; };
+		A02545B3188A4F02001B327F /* SpaceshipScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceshipScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A02545AB188A48F3001B327F /* SpriteKit.framework in Frameworks */,
 				15C148D3188A3CC1004EBAC0 /* CoreGraphics.framework in Frameworks */,
 				15C148D5188A3CC1004EBAC0 /* UIKit.framework in Frameworks */,
 				15C148D1188A3CC1004EBAC0 /* Foundation.framework in Frameworks */,
@@ -103,6 +112,7 @@
 		15C148CF188A3CC1004EBAC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A02545AA188A48F3001B327F /* SpriteKit.framework */,
 				15C148D0188A3CC1004EBAC0 /* Foundation.framework */,
 				15C148D2188A3CC1004EBAC0 /* CoreGraphics.framework */,
 				15C148D4188A3CC1004EBAC0 /* UIKit.framework */,
@@ -120,6 +130,10 @@
 				15C148E5188A3CC1004EBAC0 /* Main_iPad.storyboard */,
 				15C148E8188A3CC1004EBAC0 /* ViewController.h */,
 				15C148E9188A3CC1004EBAC0 /* ViewController.m */,
+				A02545AF188A4A67001B327F /* HelloScene.h */,
+				A02545B0188A4A67001B327F /* HelloScene.m */,
+				A02545B2188A4F02001B327F /* SpaceshipScene.h */,
+				A02545B3188A4F02001B327F /* SpaceshipScene.m */,
 				15C148EB188A3CC1004EBAC0 /* Images.xcassets */,
 				15C148D7188A3CC1004EBAC0 /* Supporting Files */,
 			);
@@ -254,6 +268,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C148EA188A3CC1004EBAC0 /* ViewController.m in Sources */,
+				A02545B1188A4A67001B327F /* HelloScene.m in Sources */,
+				A02545B4188A4F02001B327F /* SpaceshipScene.m in Sources */,
 				15C148E1188A3CC1004EBAC0 /* AppDelegate.m in Sources */,
 				15C148DD188A3CC1004EBAC0 /* main.m in Sources */,
 			);
@@ -474,6 +490,7 @@
 				15C14904188A3CC1004EBAC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15C14905188A3CC1004EBAC0 /* Build configuration list for PBXNativeTarget "PayRayTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +499,7 @@
 				15C14907188A3CC1004EBAC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
