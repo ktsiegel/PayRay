@@ -36,6 +36,10 @@
 		3395FEFB188B1FAF00326E47 /* grc.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 3395FEF7188B1FAF00326E47 /* grc.traineddata */; };
 		3395FEFC188B1FAF00326E47 /* ita.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 3395FEF8188B1FAF00326E47 /* ita.traineddata */; };
 		3395FEFF188B1FEE00326E47 /* ReceiptPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */; };
+		15C14912188B0AEF004EBAC0 /* PaymentUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C14911188B0AEF004EBAC0 /* PaymentUtil.m */; };
+		C576592FF993475CBA57B5C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F27687762FEE4E76A8F9162D /* libPods.a */; };
+/* End PBXBuildFile section */
+
 		A0C1AF35188AFCAF00E83ACA /* iBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF2E188AFCAF00E83ACA /* iBeaconViewController.m */; };
 		A0C1AF37188AFCAF00E83ACA /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF32188AFCAF00E83ACA /* SpaceshipScene.m */; };
 		A0C1AF3B188AFF8000E83ACA /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF3A188AFF8000E83ACA /* LocationModel.m */; };
@@ -91,6 +95,10 @@
 		3395FEF8188B1FAF00326E47 /* ita.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = ita.traineddata; sourceTree = "<group>"; };
 		3395FEFD188B1FEE00326E47 /* ReceiptPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptPicViewController.h; sourceTree = "<group>"; };
 		3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptPicViewController.m; sourceTree = "<group>"; };
+		15C14910188B0AEF004EBAC0 /* PaymentUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentUtil.h; sourceTree = "<group>"; };
+		15C14911188B0AEF004EBAC0 /* PaymentUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentUtil.m; sourceTree = "<group>"; };
+		9BB6754D19C243B7914C39C9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		F27687762FEE4E76A8F9162D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C1AF2D188AFCAF00E83ACA /* iBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBeaconViewController.h; sourceTree = "<group>"; };
 		A0C1AF2E188AFCAF00E83ACA /* iBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBeaconViewController.m; sourceTree = "<group>"; };
 		A0C1AF31188AFCAF00E83ACA /* SpaceshipScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceshipScene.h; sourceTree = "<group>"; };
@@ -111,6 +119,7 @@
 				15C148D3188A3CC1004EBAC0 /* CoreGraphics.framework in Frameworks */,
 				15C148D5188A3CC1004EBAC0 /* UIKit.framework in Frameworks */,
 				15C148D1188A3CC1004EBAC0 /* Foundation.framework in Frameworks */,
+				C576592FF993475CBA57B5C5 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +144,7 @@
 				15C148F8188A3CC1004EBAC0 /* PayRayTests */,
 				15C148CF188A3CC1004EBAC0 /* Frameworks */,
 				15C148CE188A3CC1004EBAC0 /* Products */,
+				9BB6754D19C243B7914C39C9 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,6 +168,7 @@
 				15C148D2188A3CC1004EBAC0 /* CoreGraphics.framework */,
 				15C148D4188A3CC1004EBAC0 /* UIKit.framework */,
 				15C148F2188A3CC1004EBAC0 /* XCTest.framework */,
+				F27687762FEE4E76A8F9162D /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -179,6 +190,8 @@
 				15C148E9188A3CC1004EBAC0 /* ViewController.m */,
 				15C148EB188A3CC1004EBAC0 /* Images.xcassets */,
 				15C148D7188A3CC1004EBAC0 /* Supporting Files */,
+				15C14910188B0AEF004EBAC0 /* PaymentUtil.h */,
+				15C14911188B0AEF004EBAC0 /* PaymentUtil.m */,
 				15C1490A188A6601004EBAC0 /* UsersDistance.h */,
 				15C1490B188A6601004EBAC0 /* UsersDistance.m */,
 				15C1490D188A6A7C004EBAC0 /* CalcOrderUtil.h */,
@@ -242,9 +255,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15C14902188A3CC1004EBAC0 /* Build configuration list for PBXNativeTarget "PayRay" */;
 			buildPhases = (
+				2B3737FE7F6B4B5895ACF6F5 /* Check Pods Manifest.lock */,
 				15C148C9188A3CC1004EBAC0 /* Sources */,
 				15C148CA188A3CC1004EBAC0 /* Frameworks */,
 				15C148CB188A3CC1004EBAC0 /* Resources */,
+				C89BFE94A75E422BAB66756F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -332,6 +347,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B3737FE7F6B4B5895ACF6F5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C89BFE94A75E422BAB66756F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		15C148C9188A3CC1004EBAC0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -348,6 +396,7 @@
 				3395FEFF188B1FEE00326E47 /* ReceiptPicViewController.m in Sources */,
 				3395FEE9188B122100326E47 /* UserModel.xcdatamodeld in Sources */,
 				15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */,
+				15C14912188B0AEF004EBAC0 /* PaymentUtil.m in Sources */,
 				15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +531,7 @@
 		};
 		15C14903188A3CC1004EBAC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BB6754D19C243B7914C39C9 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -500,6 +550,7 @@
 		};
 		15C14904188A3CC1004EBAC0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BB6754D19C243B7914C39C9 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
