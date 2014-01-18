@@ -12,6 +12,6 @@
 
 @property(nonatomic, strong) NSString* personA;
 @property(nonatomic, strong) NSString* personB;
-@property(nonatomic) NSInteger* dist;
+@property(nonatomic) NSNumber* dist;
 
 @end

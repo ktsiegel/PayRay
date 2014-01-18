@@ -30,7 +30,7 @@
     HelloScene* hello = [[HelloScene alloc] initWithSize:CGSizeMake(768,1024)];
     self.spriteView = (SKView *) self.view;
     [self.spriteView presentScene: hello];
-    self.people=[NSMutableArray arrayWithObjects:@"alice",@"tim",@"bob", nil];
+    self.people=[NSMutableArray arrayWithObjects:@"alice",@"tim",@"bob",@"helen",@"joe",@"water", nil];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -38,14 +38,13 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)spaceshipReady{
-    int x=0;
-    for(NSString *name in self.people){
-        [(SpaceshipScene*)self.spriteView.scene newPersonWithPosition:(int) 100+x*60 :(int) 400 :(int)60 :name];
-        x++;
-    }
+    [(SpaceshipScene*)self.spriteView.scene populate:self.people];
 }
 
 // @param dists  a mutablelist of 
-- (void) calculate
+- (void) calculate{
+
+}
 
 @end
+

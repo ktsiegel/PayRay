@@ -24,8 +24,8 @@
 		15C148FF188A3CC1004EBAC0 /* PayRayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C148FE188A3CC1004EBAC0 /* PayRayTests.m */; };
 		15C14909188A3D36004EBAC0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C14908188A3D36004EBAC0 /* CoreLocation.framework */; };
 		15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490B188A6601004EBAC0 /* UsersDistance.m */; };
-		A0C1AF1C188A71EA00E83ACA /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF1B188A71EA00E83ACA /* SpaceshipScene.m */; };
-		A0C1AF20188A71F500E83ACA /* HelloScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF1E188A71F500E83ACA /* HelloScene.m */; };
+		15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,10 +62,9 @@
 		15C14908188A3D36004EBAC0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		15C1490A188A6601004EBAC0 /* UsersDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersDistance.h; sourceTree = "<group>"; };
 		15C1490B188A6601004EBAC0 /* UsersDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersDistance.m; sourceTree = "<group>"; };
-		A0C1AF1B188A71EA00E83ACA /* SpaceshipScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceshipScene.m; sourceTree = "<group>"; };
-		A0C1AF1D188A71F500E83ACA /* HelloScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloScene.h; sourceTree = "<group>"; };
-		A0C1AF1E188A71F500E83ACA /* HelloScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloScene.m; sourceTree = "<group>"; };
-		A0C1AF1F188A71F500E83ACA /* SpaceshipScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceshipScene.h; sourceTree = "<group>"; };
+		15C1490D188A6A7C004EBAC0 /* CalcOrderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalcOrderUtil.h; sourceTree = "<group>"; };
+		15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalcOrderUtil.m; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +140,8 @@
 				15C148D7188A3CC1004EBAC0 /* Supporting Files */,
 				15C1490A188A6601004EBAC0 /* UsersDistance.h */,
 				15C1490B188A6601004EBAC0 /* UsersDistance.m */,
+				15C1490D188A6A7C004EBAC0 /* CalcOrderUtil.h */,
+				15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */,
 			);
 			path = PayRay;
 			sourceTree = "<group>";
@@ -273,11 +274,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C148EA188A3CC1004EBAC0 /* ViewController.m in Sources */,
-				A0C1AF20188A71F500E83ACA /* HelloScene.m in Sources */,
 				15C148E1188A3CC1004EBAC0 /* AppDelegate.m in Sources */,
 				A0C1AF1C188A71EA00E83ACA /* SpaceshipScene.m in Sources */,
 				15C148DD188A3CC1004EBAC0 /* main.m in Sources */,
 				15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */,
+				15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
