@@ -77,13 +77,11 @@
                 NSString* b = [allKeys objectAtIndex:j];
                 if ([b isEqualToString:person] == NO && [b isEqualToString: a] == NO) {
                     //this is a triangle
-                    struct Triangle triangle;
-                    triangle.a = a;
-                    triangle.b = b;
                     double distC = [[[distances objectForKey:a] objectForKey:b] doubleValue];
                     double distB = [[[distances objectForKey:a] objectForKey:person] doubleValue];
                     double distA = [[[distances objectForKey:b] objectForKey:person] doubleValue];
                     double theta = atan((pow(distA,2) + pow(distB,2) - pow(distC,2)) / (2 * distB * distA));
+
                     if (theta > maxTheta) {
                         maxTheta = theta;
                         [maxNeighbors replaceObjectAtIndex:0 withObject:a];
