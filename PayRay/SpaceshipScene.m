@@ -8,16 +8,18 @@
 
 #import "SpaceshipScene.h"
 #import "ViewController.h"
-
+static NSString * const kAnimalNodeName = @"movable";
 @interface SpaceshipScene ()
 @property BOOL contentCreated;
 @property int count;
 @property NSArray* people;
 @property ViewController* viewController;
 @property CGFloat radius;
+@property (nonatomic, strong) SKShapeNode *selectedNode;
 @end
 
 @implementation SpaceshipScene
+
 - (void)didMoveToView:(SKView *)view
 {
     if (!self.contentCreated)
@@ -117,5 +119,36 @@
         }];
         x++;
     }
+}
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint positionInScene = [touch locationInNode:self];
+    [self selectNodeForTouch:positionInScene];
+}
+- (void)selectNodeForTouch:(CGPoint)touchLocation {
+    //1
+    SKShapeNode *touchedNode;
+    if([[self nodeAtPoint:touchLocation] isKindOfClass: [SKShapeNode class]]){
+        touchedNode = (SKShapeNode *)[self nodeAtPoint:touchLocation];
+    }
+    else if([[self nodeAtPoint:touchLocation] isKindOfClass: [SKLabelNode class]]){
+        touchedNode = (SKShapeNode *)[self nodeAtPoint:touchLocation].parent;
+    }
+    
+    //2
+
+		_selectedNode = touchedNode;
+		//3
+		SKAction *sequence = [SKAction sequence:@[
+                                                  [SKAction scaleBy:2.0 duration:0.1],
+                                                  [SKAction rotateByAngle:degToRad(-4.0f) duration:0.1],
+                                                  [SKAction rotateByAngle:0.0 duration:0.1],
+                                                  [SKAction rotateByAngle:degToRad(4.0f) duration:0.1],
+                                                  [SKAction scaleBy:.5 duration:0.1]]];
+        [_selectedNode runAction:[SKAction repeatAction:sequence count:1]];
+    
+}
+float degToRad(float degree) {
+	return degree / 180.0f * M_PI;
 }
 @end
