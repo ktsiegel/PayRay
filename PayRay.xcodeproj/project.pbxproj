@@ -585,13 +585,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";
 				INFOPLIST_FILE = "PayRay/PayRay-Info.plist";
-				OTHER_LDFLAGS = (
-					"-lstdc++",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-v";
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-lstdc++",
 					"-ObjC",
+					"-v",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -613,13 +611,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";
 				INFOPLIST_FILE = "PayRay/PayRay-Info.plist";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lstdc++",
-				);
+				OTHER_LDFLAGS = "-v";
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-lstdc++",
 					"-ObjC",
+					"-v",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
