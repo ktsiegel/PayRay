@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Kathryn Siegel. All rights reserved.
 //
 
-#import "iBeaconViewController.h"
+#import "iBeaconManager.h"
 #import "ViewController.h"
 #import "LocationModel.h"
 #import <Firebase/Firebase.h>

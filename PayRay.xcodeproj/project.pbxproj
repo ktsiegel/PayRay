@@ -38,7 +38,6 @@
 		33F02BD4188B615E00CD32A7 /* equ.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 33F02BD0188B615E00CD32A7 /* equ.traineddata */; };
 		33F02BD5188B615E00CD32A7 /* grc.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 33F02BD1188B615E00CD32A7 /* grc.traineddata */; };
 		33F02BD6188B615E00CD32A7 /* ita.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 33F02BD2188B615E00CD32A7 /* ita.traineddata */; };
-		A0C1AF35188AFCAF00E83ACA /* iBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF2E188AFCAF00E83ACA /* iBeaconViewController.m */; };
 		A0C1AF37188AFCAF00E83ACA /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF32188AFCAF00E83ACA /* SpaceshipScene.m */; };
 		A0C1AF3B188AFF8000E83ACA /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF3A188AFF8000E83ACA /* LocationModel.m */; };
 		A0C1AF3F188B0BF200E83ACA /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1AF3E188B0BF200E83ACA /* libicucore.dylib */; };
@@ -46,6 +45,7 @@
 		A0C1AF43188B0C0900E83ACA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1AF42188B0C0900E83ACA /* CFNetwork.framework */; };
 		A0C1AF45188B0C1300E83ACA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1AF44188B0C1300E83ACA /* Security.framework */; };
 		A0C1AF47188B0C5400E83ACA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1AF46188B0C5400E83ACA /* SystemConfiguration.framework */; };
+		A0C1AF4E188B79A700E83ACA /* iBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF4D188B79A700E83ACA /* iBeaconManager.m */; };
 		C576592FF993475CBA57B5C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F27687762FEE4E76A8F9162D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -103,8 +103,6 @@
 		33F02BD1188B615E00CD32A7 /* grc.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = grc.traineddata; sourceTree = "<group>"; };
 		33F02BD2188B615E00CD32A7 /* ita.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = ita.traineddata; sourceTree = "<group>"; };
 		9BB6754D19C243B7914C39C9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		A0C1AF2D188AFCAF00E83ACA /* iBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBeaconViewController.h; sourceTree = "<group>"; };
-		A0C1AF2E188AFCAF00E83ACA /* iBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBeaconViewController.m; sourceTree = "<group>"; };
 		A0C1AF31188AFCAF00E83ACA /* SpaceshipScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceshipScene.h; sourceTree = "<group>"; };
 		A0C1AF32188AFCAF00E83ACA /* SpaceshipScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceshipScene.m; sourceTree = "<group>"; };
 		A0C1AF39188AFF8000E83ACA /* LocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationModel.h; sourceTree = "<group>"; };
@@ -114,6 +112,8 @@
 		A0C1AF42188B0C0900E83ACA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A0C1AF44188B0C1300E83ACA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A0C1AF46188B0C5400E83ACA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A0C1AF4C188B79A700E83ACA /* iBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBeaconManager.h; sourceTree = "<group>"; };
+		A0C1AF4D188B79A700E83ACA /* iBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBeaconManager.m; sourceTree = "<group>"; };
 		F27687762FEE4E76A8F9162D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -198,8 +198,8 @@
 		15C148D6188A3CC1004EBAC0 /* PayRay */ = {
 			isa = PBXGroup;
 			children = (
-				A0C1AF2D188AFCAF00E83ACA /* iBeaconViewController.h */,
-				A0C1AF2E188AFCAF00E83ACA /* iBeaconViewController.m */,
+				A0C1AF4C188B79A700E83ACA /* iBeaconManager.h */,
+				A0C1AF4D188B79A700E83ACA /* iBeaconManager.m */,
 				A0C1AF31188AFCAF00E83ACA /* SpaceshipScene.h */,
 				A0C1AF32188AFCAF00E83ACA /* SpaceshipScene.m */,
 				A0C1AF39188AFF8000E83ACA /* LocationModel.h */,
@@ -407,7 +407,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0C1AF37188AFCAF00E83ACA /* SpaceshipScene.m in Sources */,
-				A0C1AF35188AFCAF00E83ACA /* iBeaconViewController.m in Sources */,
 				15C148EA188A3CC1004EBAC0 /* ViewController.m in Sources */,
 				3395FEE4188B0D6C00326E47 /* LoginViewController.m in Sources */,
 				15C148E1188A3CC1004EBAC0 /* AppDelegate.m in Sources */,
@@ -416,6 +415,7 @@
 				15C148DD188A3CC1004EBAC0 /* main.m in Sources */,
 				3395FEFF188B1FEE00326E47 /* ReceiptPicViewController.m in Sources */,
 				3395FEE9188B122100326E47 /* UserModel.xcdatamodeld in Sources */,
+				A0C1AF4E188B79A700E83ACA /* iBeaconManager.m in Sources */,
 				15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */,
 				15C14912188B0AEF004EBAC0 /* PaymentUtil.m in Sources */,
 				15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */,
