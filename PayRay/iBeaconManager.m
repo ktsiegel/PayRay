@@ -19,6 +19,8 @@
 @implementation iBeaconManager {
     NSMutableDictionary *_beacons;
     CLLocationManager *_locationManager;
+    NSMutableDictionary *_beaconDists;
+    NSMutableDictionary *_distSamples;
     CLBeaconRegion *_transmitRegion;
     CLBeaconRegion *_monitorRegion;
     CBPeripheralManager* _peripheralManager;
@@ -46,6 +48,8 @@
     self = [super init];
     if (self) {
         _beacons = [[NSMutableDictionary alloc] init];
+        _beaconDists = [[NSMutableDictionary alloc] init];
+        _distSamples = [[NSMutableDictionary alloc] init];
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
         _uuid = @"7AAF1FFA-7EA5-44A5-B4E8-0A8BBDF0B775";
@@ -58,6 +62,7 @@
 {
     _master = true;
 }
+
 -(void)enslave {
     _slave = true;
 }
@@ -136,7 +141,6 @@
     }
     if(_master) {
         //We are the master: add everyone else in range to the table only once
-        _master = false;
         //Add a table to TABLES
         Firebase* tablesRef = [_baseRef childByAppendingPath:@"TABLES"];
         [tablesRef observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
@@ -159,16 +163,29 @@
     }
     else if(_slave) {
         //We are a slave: get the distance to all other users and upload it to Firebase so the master can use it
-        _slave = false;
-        NSLog(@"slave runs");
+        NSLog(@"slave running");
         NSMutableArray* distances = [self getDistancesToBeacons:beacons];
         //Send the distance objects off
         
         
     }
 }
+
 -(double)getDistanceToBeacon:(CLBeacon*)beacon {
-    double accuracy = beacon.accuracy;
+    double acc = beacon.accuracy;
+    
+    if (!_beaconDists[beacon]) {
+        [_beaconDists setObject:@(0.0) forKey:beacon];
+        [_distSamples setObject:@0 forKey:beacon];
+    }
+        
+    if ([_distSamples[beacon] integerValue] <= 5)
+        [_distSamples setObject:@([_distSamples[beacon] integerValue] + 1) forKey:beacon];
+    
+    double recip = 1.0/[_distSamples[beacon] floatValue];
+    double accuracy = (acc/recip + (1-recip) * [_beaconDists[beacon] floatValue]);
+    
+    [_beaconDists setObject:[NSNumber numberWithFloat:accuracy] forKey:beacon];
     return accuracy;
 }
 
