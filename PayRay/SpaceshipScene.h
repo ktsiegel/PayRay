@@ -8,7 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface SpaceshipScene : SKScene
+@interface SpaceshipScene : SKScene <SKPhysicsContactDelegate>
 - (SKShapeNode*)newPersonWithPosition:(int) x :(int) y :(int)size :(NSString*)name;
 -(void) populate:(NSMutableArray*)people;
 @end

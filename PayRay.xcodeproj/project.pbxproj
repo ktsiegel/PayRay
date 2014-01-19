@@ -38,6 +38,8 @@
 		3395FEFF188B1FEE00326E47 /* ReceiptPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */; };
 		15C14912188B0AEF004EBAC0 /* PaymentUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C14911188B0AEF004EBAC0 /* PaymentUtil.m */; };
 		C576592FF993475CBA57B5C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F27687762FEE4E76A8F9162D /* libPods.a */; };
+		A0C1AF1C188A71EA00E83ACA /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF1B188A71EA00E83ACA /* SpaceshipScene.m */; };
+		A0C1AF20188A71F500E83ACA /* HelloScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF1E188A71F500E83ACA /* HelloScene.m */; };
 /* End PBXBuildFile section */
 
 		A0C1AF35188AFCAF00E83ACA /* iBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF2E188AFCAF00E83ACA /* iBeaconViewController.m */; };
@@ -117,6 +119,9 @@
 		A0C1AF42188B0C0900E83ACA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A0C1AF44188B0C1300E83ACA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A0C1AF46188B0C5400E83ACA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A0C1AF1B188A71EA00E83ACA /* SpaceshipScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceshipScene.m; sourceTree = "<group>"; };
+		A0C1AF1D188A71F500E83ACA /* HelloScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloScene.h; sourceTree = "<group>"; };
+		A0C1AF1E188A71F500E83ACA /* HelloScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +217,8 @@
 				15C148E5188A3CC1004EBAC0 /* Main_iPad.storyboard */,
 				15C148E8188A3CC1004EBAC0 /* ViewController.h */,
 				15C148E9188A3CC1004EBAC0 /* ViewController.m */,
+				A0949A16188AEB19006F63A5 /* User.h */,
+				A0949A17188AEB19006F63A5 /* User.m */,
 				15C148EB188A3CC1004EBAC0 /* Images.xcassets */,
 				15C148D7188A3CC1004EBAC0 /* Supporting Files */,
 				15C14910188B0AEF004EBAC0 /* PaymentUtil.h */,
@@ -413,6 +420,8 @@
 				A0C1AF35188AFCAF00E83ACA /* iBeaconViewController.m in Sources */,
 				15C148EA188A3CC1004EBAC0 /* ViewController.m in Sources */,
 				3395FEE4188B0D6C00326E47 /* LoginViewController.m in Sources */,
+				A0949A18188AEB19006F63A5 /* User.m in Sources */,
+				A0C1AF20188A71F500E83ACA /* HelloScene.m in Sources */,
 				15C148E1188A3CC1004EBAC0 /* AppDelegate.m in Sources */,
 				A0C1AF3B188AFF8000E83ACA /* LocationModel.m in Sources */,
 				3395FEEF188B1BB900326E47 /* User.m in Sources */,
