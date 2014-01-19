@@ -25,6 +25,7 @@
 		15C14909188A3D36004EBAC0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C14908188A3D36004EBAC0 /* CoreLocation.framework */; };
 		15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490B188A6601004EBAC0 /* UsersDistance.m */; };
 		15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */; };
+		15C14912188B0AEF004EBAC0 /* PaymentUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C14911188B0AEF004EBAC0 /* PaymentUtil.m */; };
 		3395FEE4188B0D6C00326E47 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEE3188B0D6C00326E47 /* LoginViewController.m */; };
 		3395FEE6188B120600326E47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3395FEE5188B120600326E47 /* CoreData.framework */; };
 		3395FEE9188B122100326E47 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEE7188B122100326E47 /* UserModel.xcdatamodeld */; };
@@ -36,12 +37,7 @@
 		3395FEFB188B1FAF00326E47 /* grc.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 3395FEF7188B1FAF00326E47 /* grc.traineddata */; };
 		3395FEFC188B1FAF00326E47 /* ita.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 3395FEF8188B1FAF00326E47 /* ita.traineddata */; };
 		3395FEFF188B1FEE00326E47 /* ReceiptPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */; };
-		15C14912188B0AEF004EBAC0 /* PaymentUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C14911188B0AEF004EBAC0 /* PaymentUtil.m */; };
-		C576592FF993475CBA57B5C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F27687762FEE4E76A8F9162D /* libPods.a */; };
-		A0C1AF1C188A71EA00E83ACA /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF1B188A71EA00E83ACA /* SpaceshipScene.m */; };
 		A0C1AF20188A71F500E83ACA /* HelloScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF1E188A71F500E83ACA /* HelloScene.m */; };
-/* End PBXBuildFile section */
-
 		A0C1AF35188AFCAF00E83ACA /* iBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF2E188AFCAF00E83ACA /* iBeaconViewController.m */; };
 		A0C1AF37188AFCAF00E83ACA /* SpaceshipScene.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF32188AFCAF00E83ACA /* SpaceshipScene.m */; };
 		A0C1AF3B188AFF8000E83ACA /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF3A188AFF8000E83ACA /* LocationModel.m */; };
@@ -51,6 +47,7 @@
 		A0C1AF43188B0C0900E83ACA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1AF42188B0C0900E83ACA /* CFNetwork.framework */; };
 		A0C1AF45188B0C1300E83ACA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1AF44188B0C1300E83ACA /* Security.framework */; };
 		A0C1AF47188B0C5400E83ACA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1AF46188B0C5400E83ACA /* SystemConfiguration.framework */; };
+		C576592FF993475CBA57B5C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F27687762FEE4E76A8F9162D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +86,8 @@
 		15C1490B188A6601004EBAC0 /* UsersDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersDistance.m; sourceTree = "<group>"; };
 		15C1490D188A6A7C004EBAC0 /* CalcOrderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalcOrderUtil.h; sourceTree = "<group>"; };
 		15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalcOrderUtil.m; sourceTree = "<group>"; };
+		15C14910188B0AEF004EBAC0 /* PaymentUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentUtil.h; sourceTree = "<group>"; };
+		15C14911188B0AEF004EBAC0 /* PaymentUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentUtil.m; sourceTree = "<group>"; };
 		3395FEE2188B0D6C00326E47 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3395FEE3188B0D6C00326E47 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		3395FEE5188B120600326E47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -103,10 +102,8 @@
 		3395FEF8188B1FAF00326E47 /* ita.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = ita.traineddata; sourceTree = "<group>"; };
 		3395FEFD188B1FEE00326E47 /* ReceiptPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptPicViewController.h; sourceTree = "<group>"; };
 		3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptPicViewController.m; sourceTree = "<group>"; };
-		15C14910188B0AEF004EBAC0 /* PaymentUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentUtil.h; sourceTree = "<group>"; };
-		15C14911188B0AEF004EBAC0 /* PaymentUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentUtil.m; sourceTree = "<group>"; };
 		9BB6754D19C243B7914C39C9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		F27687762FEE4E76A8F9162D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C1AF1E188A71F500E83ACA /* HelloScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloScene.m; sourceTree = "<group>"; };
 		A0C1AF2D188AFCAF00E83ACA /* iBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBeaconViewController.h; sourceTree = "<group>"; };
 		A0C1AF2E188AFCAF00E83ACA /* iBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBeaconViewController.m; sourceTree = "<group>"; };
 		A0C1AF31188AFCAF00E83ACA /* SpaceshipScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceshipScene.h; sourceTree = "<group>"; };
@@ -119,9 +116,7 @@
 		A0C1AF42188B0C0900E83ACA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A0C1AF44188B0C1300E83ACA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A0C1AF46188B0C5400E83ACA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		A0C1AF1B188A71EA00E83ACA /* SpaceshipScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceshipScene.m; sourceTree = "<group>"; };
-		A0C1AF1D188A71F500E83ACA /* HelloScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloScene.h; sourceTree = "<group>"; };
-		A0C1AF1E188A71F500E83ACA /* HelloScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloScene.m; sourceTree = "<group>"; };
+		F27687762FEE4E76A8F9162D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,8 +212,6 @@
 				15C148E5188A3CC1004EBAC0 /* Main_iPad.storyboard */,
 				15C148E8188A3CC1004EBAC0 /* ViewController.h */,
 				15C148E9188A3CC1004EBAC0 /* ViewController.m */,
-				A0949A16188AEB19006F63A5 /* User.h */,
-				A0949A17188AEB19006F63A5 /* User.m */,
 				15C148EB188A3CC1004EBAC0 /* Images.xcassets */,
 				15C148D7188A3CC1004EBAC0 /* Supporting Files */,
 				15C14910188B0AEF004EBAC0 /* PaymentUtil.h */,
@@ -420,7 +413,6 @@
 				A0C1AF35188AFCAF00E83ACA /* iBeaconViewController.m in Sources */,
 				15C148EA188A3CC1004EBAC0 /* ViewController.m in Sources */,
 				3395FEE4188B0D6C00326E47 /* LoginViewController.m in Sources */,
-				A0949A18188AEB19006F63A5 /* User.m in Sources */,
 				A0C1AF20188A71F500E83ACA /* HelloScene.m in Sources */,
 				15C148E1188A3CC1004EBAC0 /* AppDelegate.m in Sources */,
 				A0C1AF3B188AFF8000E83ACA /* LocationModel.m in Sources */,
@@ -568,11 +560,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/aheifetz/Dropbox/iPhone\\ Apps/PayRay",
-					"/Users/Kshitij/Downloads/Tesseract-OCR-iOS-master/Products",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";
 				INFOPLIST_FILE = "PayRay/PayRay-Info.plist";
@@ -589,11 +577,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/aheifetz/Dropbox/iPhone\\ Apps/PayRay",
-					"/Users/Kshitij/Downloads/Tesseract-OCR-iOS-master/Products",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";
 				INFOPLIST_FILE = "PayRay/PayRay-Info.plist";
