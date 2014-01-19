@@ -53,6 +53,7 @@
 }
 
 -(void) startIBeacon: (NSString*)userId {
+    _userId = userId;
     NSUUID* uuid = [[NSUUID alloc] initWithUUIDString:_uuid];
     NSString* maj = [userId substringWithRange:NSMakeRange(0, 4)];
     NSString* min = [userId substringWithRange:NSMakeRange(0, 4)];
