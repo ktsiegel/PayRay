@@ -16,26 +16,16 @@
 
 @implementation ViewController
 
-@synthesize beaconManager = _beaconManager;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.beaconManager = [iBeaconManager init];
+    
     
     SKView *spriteView = (SKView *) self.view;
     spriteView.showsDrawCount = YES;
     spriteView.showsNodeCount = YES;
     spriteView.showsFPS = YES;
-}
-
-- (iBeaconManager *)beaconManager
-{
-    if (_beaconManager != nil) {
-        return _beaconManager;
-    }
-    else {
-        return [iBeaconManager init];
-    }
 }
 
 
