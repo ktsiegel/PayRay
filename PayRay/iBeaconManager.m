@@ -9,7 +9,7 @@
 #import "iBeaconManager.h"
 #import "ViewController.h"
 #import "LocationModel.h"
-#import "UserDistance.h"
+#import "UsersDistance.h"
 #import <Firebase/Firebase.h>
 
 @interface iBeaconManager ()
