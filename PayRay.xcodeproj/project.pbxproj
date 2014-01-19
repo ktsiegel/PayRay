@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		151C823E188BA7BD00FBF1E4 /* CalcOrderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 151C8238188BA7BD00FBF1E4 /* CalcOrderUtil.m */; };
 		151C823F188BA7BD00FBF1E4 /* ChargePaymentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 151C8239188BA7BD00FBF1E4 /* ChargePaymentHandler.m */; };
 		151C8240188BA7BD00FBF1E4 /* FulfillPaymentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 151C823B188BA7BD00FBF1E4 /* FulfillPaymentHandler.m */; };
 		151C8241188BA7BD00FBF1E4 /* PaymentUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 151C823D188BA7BD00FBF1E4 /* PaymentUtil.m */; };
@@ -31,6 +30,8 @@
 		15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */; };
 		15C14978188B9CCB004EBAC0 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C14977188B9CCB004EBAC0 /* TesseractOCR.framework */; };
 		15C1497A188B9CD3004EBAC0 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C14979188B9CD3004EBAC0 /* Firebase.framework */; };
+		3311CFDE188BB80800E71862 /* RecieptItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3311CFDB188BB80800E71862 /* RecieptItem.m */; };
+		3311CFDF188BB80800E71862 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3311CFDD188BB80800E71862 /* User.m */; };
 		335A4B50188B7CDA0051EDB6 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 335A4B4F188B7CDA0051EDB6 /* SyncViewController.m */; };
 		3395FEE4188B0D6C00326E47 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEE3188B0D6C00326E47 /* LoginViewController.m */; };
 		3395FEE6188B120600326E47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3395FEE5188B120600326E47 /* CoreData.framework */; };
@@ -95,6 +96,10 @@
 		15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalcOrderUtil.m; sourceTree = "<group>"; };
 		15C14977188B9CCB004EBAC0 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
 		15C14979188B9CD3004EBAC0 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		3311CFDA188BB80800E71862 /* RecieptItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecieptItem.h; sourceTree = "<group>"; };
+		3311CFDB188BB80800E71862 /* RecieptItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecieptItem.m; sourceTree = "<group>"; };
+		3311CFDC188BB80800E71862 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		3311CFDD188BB80800E71862 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		335A4B4E188B7CDA0051EDB6 /* SyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncViewController.h; sourceTree = "<group>"; };
 		335A4B4F188B7CDA0051EDB6 /* SyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncViewController.m; sourceTree = "<group>"; };
 		3395FEE2188B0D6C00326E47 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -203,6 +208,10 @@
 		15C148D6188A3CC1004EBAC0 /* PayRay */ = {
 			isa = PBXGroup;
 			children = (
+				3311CFDA188BB80800E71862 /* RecieptItem.h */,
+				3311CFDB188BB80800E71862 /* RecieptItem.m */,
+				3311CFDC188BB80800E71862 /* User.h */,
+				3311CFDD188BB80800E71862 /* User.m */,
 				151C8238188BA7BD00FBF1E4 /* CalcOrderUtil.m */,
 				151C8239188BA7BD00FBF1E4 /* ChargePaymentHandler.m */,
 				151C823A188BA7BD00FBF1E4 /* FulfillPaymentHandler.h */,
@@ -414,6 +423,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3311CFDF188BB80800E71862 /* User.m in Sources */,
+				3311CFDE188BB80800E71862 /* RecieptItem.m in Sources */,
 				A0C1AF37188AFCAF00E83ACA /* SpaceshipScene.m in Sources */,
 				15C148EA188A3CC1004EBAC0 /* ViewController.m in Sources */,
 				3395FEE4188B0D6C00326E47 /* LoginViewController.m in Sources */,
@@ -428,7 +439,6 @@
 				A0C1AF4E188B79A700E83ACA /* iBeaconManager.m in Sources */,
 				15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */,
 				15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */,
-				151C823E188BA7BD00FBF1E4 /* CalcOrderUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,9 +578,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					/Users/kathrynsiegel/Development/PayRay,
 					/Users/Kshitij/Desktop/PayRay,
 					"/Users/aheifetz/Dropbox/iPhone\\ Apps/PayRay",
-					/Users/kathrynsiegel/Development/PayRay,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";
@@ -596,9 +606,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					/Users/kathrynsiegel/Development/PayRay,
 					/Users/Kshitij/Desktop/PayRay,
 					"/Users/aheifetz/Dropbox/iPhone\\ Apps/PayRay",
-					/Users/kathrynsiegel/Development/PayRay,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";

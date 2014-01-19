@@ -8,6 +8,8 @@
 
 #import "SpaceshipScene.h"
 #import "ViewController.h"
+#import "RecieptItem.h"
+#import "User.h"
 static NSString * const kAnimalNodeName = @"movable";
 @interface SpaceshipScene ()
 @property BOOL contentCreated;
@@ -20,6 +22,14 @@ static NSString * const kAnimalNodeName = @"movable";
 @property CGPoint oldLoc;
 @property SKShapeNode *center;
 @property (nonatomic, strong) SKShapeNode *other;
+@property UIAlertView *payMessage;
+@property UIAlertView *chargeMessage;
+
+enum MovementMode {
+    DEFAULT = 0,
+    HAS_MOVED = 1,
+    HAS_TOUCHED = 2
+};
 
 @end
 static const uint32_t centerCategory = 0x1 << 0;
@@ -34,6 +44,8 @@ static const uint32_t peopleCategory = 0x1 << 1;
         [self createSceneContents];
         self.contentCreated = YES;
     }
+    
+    // Check parents recursively to find the root parent and call spaceshipReady
     UIResponder *responder = view;
     while (![responder isKindOfClass:[ViewController class]]) {
         responder = [responder nextResponder];
@@ -46,27 +58,29 @@ static const uint32_t peopleCategory = 0x1 << 1;
     self.physicsWorld.gravity = CGVectorMake(0,0);
 }
 
+// Called first
 - (void)createSceneContents
 {
     self.physicsWorld.contactDelegate = self;
     self.radius=300.0;
-    self.backgroundColor = [SKColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1.0];
+    self.backgroundColor = [SKColor colorWithRed:0 green:0.15 blue:0.6 alpha:1.0];
     self.scaleMode = SKSceneScaleModeAspectFit;
-    SKColor* youColor=[SKColor colorWithRed:0.15 green:0.15 blue:0.8 alpha:1.0];
+    SKColor* youColor=[SKColor colorWithRed:0 green:0.15 blue:0.6 alpha:1.0];
     
     SKShapeNode *ball=[self newCenterWith:youColor :60 :@"You"];
     [self addChild:ball];
     ball.name=@"You";
-    SKColor* payColor=[SKColor colorWithRed:0.15 green:0.8 blue:0.15 alpha:1.0];
+    SKColor* payColor=[SKColor colorWithRed:0.8 green:0.95 blue:1 alpha:1];
     
-    self.center=[self newCenterWith:payColor :120 :@"Pay"];
+    self.center=[self newCenterWith:payColor :120 :@"Charge"];
     self.center.position = CGPointMake(self.size.width/2, self.size.height/2);
-    self.center.name=@"Pay";
+    self.center.name=@"Charge";
     [self addChild:self.center];
-    self.count=0;
-    self.mode=0;
+    self.count=0; // # of people who are not you
+    self.mode=DEFAULT; // mode of center thing: 0 = ready, 1 = dragging, 2 = touched but not dragged
 }
 
+// Makes a new ball
 - (SKShapeNode *)newCenterWith: (SKColor*) color :(int)size :(NSString*)name
 {
     SKShapeNode* ball = [[SKShapeNode alloc] init];
@@ -80,53 +94,60 @@ static const uint32_t peopleCategory = 0x1 << 1;
     [ball addChild:nameTag];
     return ball;
 }
+
+// Makes text
 - (SKLabelNode *)newNameNode:(NSString*)name
 {
-    SKLabelNode *helloNode = [SKLabelNode labelNodeWithFontNamed:@"Georgia"];
+    SKLabelNode *helloNode = [SKLabelNode labelNodeWithFontNamed:@"arial"];
     helloNode.text = name;
     helloNode.fontSize = 30;
     helloNode.name = name;
-    helloNode.position=CGPointMake(0,0);
+    helloNode.position=CGPointMake(0, -helloNode.frame.size.height / 2);
     return helloNode;
 }
+
+// self-explanatory
 - (SKShapeNode*)newPersonWithPosition:(int) x :(int) y :(int)size :(NSString*)name
 {
     SKShapeNode* ball = [[SKShapeNode alloc] init];
     CGMutablePathRef myPath = CGPathCreateMutable();
     CGPathAddArc(myPath, NULL, 0,0, size, 0, M_PI*2, YES);
-    ball.strokeColor=[SKColor colorWithRed:0.7 green:0.15 blue:0.15 alpha:1.0];
+    ball.strokeColor=[SKColor colorWithRed:0 green:0.75 blue:1 alpha:1.0];
     ball.path = myPath;
-    ball.fillColor = [SKColor colorWithRed:0.7 green:0.15 blue:0.15 alpha:1.0];
+    ball.fillColor = [SKColor colorWithRed:0 green:0.75 blue:1 alpha:1.0];
     ball.position = CGPointMake(x,y);
     SKLabelNode * nameTag=[self newNameNode:name];
     ball.name=name;
     [ball addChild:nameTag];
     return ball;
 }
-- (SKSpriteNode *)newLight
-{
-    SKSpriteNode *light = [[SKSpriteNode alloc] initWithColor:[SKColor yellowColor] size:CGSizeMake(8,8)];
-    
-    SKAction *blink = [SKAction sequence:@[
-                                           [SKAction fadeOutWithDuration:0.25],
-                                           [SKAction fadeInWithDuration:0.25]]];
-    SKAction *blinkForever = [SKAction repeatActionForever:blink];
-    [light runAction: blinkForever];
-    
-    return light;
-}
+
+//
 -(void)populate:(NSMutableArray*) people{
     self.center.physicsBody=[SKPhysicsBody bodyWithCircleOfRadius:120];
     self.center.physicsBody.categoryBitMask = centerCategory;
     self.center.physicsBody.collisionBitMask = 0x0;
     self.center.physicsBody.contactTestBitMask = peopleCategory;
-    int x=1;
+    
+    NSMutableDictionary *angleDict = [[NSMutableDictionary alloc] init];
     CGFloat incre=2*M_PI/([people count]+1);
-    for(NSString *name in people){
+    
+    for (int x = 1; x < [people count] + 1; x++) {
+        [angleDict setObject:[NSNumber numberWithFloat:-M_PI_2+incre*x] forKey:people[x-1]];
+    }
+    
+    [self movePeopleTowardsAngles:angleDict];
+}
+
+-(void)movePeopleTowardsAngles:(NSMutableDictionary *)angleDict {
+    [angleDict enumerateKeysAndObjectsUsingBlock:^(User *person, NSNumber *angle, BOOL *stop) {
         CGMutablePathRef arc= CGPathCreateMutable();
-        CGPathAddArc(arc, NULL, self.size.width/2, self.size.height/2, self.radius, -M_PI_2,-M_PI_2+incre*x, TRUE);
-        SKShapeNode* next=[self newPersonWithPosition:50 :self.size.height/2 :60 :name];
+        
+        CGPathAddArc(arc, NULL, self.size.width/2, self.size.height/2, self.radius, -M_PI_2, [angle floatValue], TRUE);
+        
+        SKShapeNode *next=[self newPersonWithPosition:50 :self.size.height/2 :60 :person.name];
         [self addChild:next];
+        
         [next runAction:[SKAction followPath:arc asOffset:NO orientToPath:YES duration:1] completion:^{
             next.zRotation=0;
             CGPathRelease(arc);
@@ -141,18 +162,21 @@ static const uint32_t peopleCategory = 0x1 << 1;
             //[next.physicsBody applyForce: CGVectorMake(20,20)];
             
         }];
-        x++;
-    }
+    }];
 }
+
+// Finger down
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     CGPoint positionInScene = [touch locationInNode:self];
-    if(self.mode!=3)
+    if(self.mode!=HAS_TOUCHED)
         [self selectNodeForTouch:positionInScene];
 }
+
+// See what you are touching
 - (void)selectNodeForTouch:(CGPoint)touchLocation {
-    //1
     SKShapeNode *touchedNode;
+    
     if([[self nodeAtPoint:touchLocation] isKindOfClass: [SKShapeNode class]]){
         touchedNode = (SKShapeNode *)[self nodeAtPoint:touchLocation];
     }
@@ -163,8 +187,8 @@ static const uint32_t peopleCategory = 0x1 << 1;
         [self moveBack];
         return;
     }
-    if([touchedNode isEqual: self.center] && self.mode==0){
-        self.mode=3;
+    if([touchedNode isEqual: self.center] && self.mode==DEFAULT){
+        self.mode=2;
         _selectedNode=touchedNode;
         return;
     }
@@ -178,7 +202,7 @@ static const uint32_t peopleCategory = 0x1 << 1;
     }
     _selectedNode = touchedNode;
     if([_selectedNode isEqual:self.center]){
-        self.mode=3;
+        self.mode=2;
         return;
     }
     if(self.mode==0){
@@ -204,12 +228,12 @@ static const uint32_t peopleCategory = 0x1 << 1;
     
     
 }
+
+// Return a ball to its home
 -(void)moveBack{
-    if(self.mode!=3 && _selectedNode!=self.center){
+    if(self.mode!=2 && _selectedNode!=self.center){
         self.mode=0;
-        SKAction *sequence = [SKAction sequence:@[
-                                                  
-                                                  [SKAction moveTo:self.oldLoc duration:0.1],
+        SKAction *sequence = [SKAction sequence:@[[SKAction moveTo:self.oldLoc duration:0.1],
                                                   [SKAction scaleBy:(float)1/3 duration:0.2]
                                                   ]];
         [_selectedNode runAction:[SKAction repeatAction:sequence count:1] completion:^{
@@ -218,16 +242,21 @@ static const uint32_t peopleCategory = 0x1 << 1;
         }];
     }
 }
+
 float degToRad(float degree) {
 	return degree / 180.0f * M_PI;
 }
+
+// makes ball follow touch
 - (void)panForTranslation:(CGPoint)translation {
     CGPoint position = [_selectedNode position];
     if([_selectedNode isEqual: self.center]) {
-        self.mode=3;
+        self.mode=2;
         [_selectedNode setPosition:CGPointMake(position.x + translation.x, position.y + translation.y)];
     }
 }
+
+
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
 	CGPoint positionInScene = [touch locationInNode:self];
@@ -237,6 +266,7 @@ float degToRad(float degree) {
     
 	[self panForTranslation:translation];
 }
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
 	CGPoint positionInScene = [touch locationInNode:self];
@@ -245,18 +275,29 @@ float degToRad(float degree) {
 	CGPoint translation = CGPointMake(positionInScene.x - previousPosition.x, positionInScene.y - previousPosition.y);
     
 	[self panForTranslation:translation];
-    if(self.mode==3 && [_selectedNode isEqual:self.center]){
+    if(self.mode==2 && [_selectedNode isEqual:self.center]){
         if(self.other){
             if([self.center.name isEqualToString:@"Charge"]){
-                ((SKLabelNode*)[self.center childNodeWithName:@"Pay"]).text=[NSString stringWithFormat:@"Charge %@",self.other.name];
-                
+                ((SKLabelNode*)[self.center childNodeWithName:@"Charge"]).text=[NSString stringWithFormat:@"Charge %@",self.other.name];
+                _chargeMessage = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Charge %@?",self.other.name]
+                                                            message:@"Amount is:"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"OK", nil];
+                [_chargeMessage show];
             }
             else{
-                ((SKLabelNode*)[self.center childNodeWithName:@"Pay"]).text=[NSString stringWithFormat:@"Pay %@",self.other.name];
+                ((SKLabelNode*)[self.center childNodeWithName:@"Charge"]).text=[NSString stringWithFormat:@"Pay %@",self.other.name];
+                _payMessage = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Charge %@?",self.other.name]
+                                                         message:@"Amount is:"
+                                                        delegate:self
+                                               cancelButtonTitle:@"Cancel"
+                                               otherButtonTitles:@"OK", nil];
+                [_payMessage show];
             }
         }
         else if([_selectedNode isEqual:self.center]){
-            [self toggleCenter];
+            //[self toggleCenter];
         }
         self.mode=0;
         _other=nil;
@@ -268,24 +309,48 @@ float degToRad(float degree) {
     }
     
 }
--(void)toggleCenter{
-    if([self.center.name isEqualToString:@"Charge"]){
-        ((SKLabelNode*)[self.center childNodeWithName:@"Pay"]).text=[NSString stringWithFormat:@"Pay"];
-        self.center.name=@"Pay";
-        self.center.strokeColor=[SKColor colorWithRed:0.15 green:0.8 blue:0.15 alpha:1.0];
-        self.center.fillColor=[SKColor colorWithRed:0.15 green:0.8 blue:0.15 alpha:1.0];
-    }
-    else{
+
+- (void)alertView:(UIAlertView *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    // the user clicked one of the OK/Cancel buttons
+    if (buttonIndex == 0)
+    {
+        NSLog(@"ok");
+        if([actionSheet isEqual:_payMessage]){
+            //DO PAYMENT
+        }
+        else if([actionSheet isEqual:_chargeMessage]){
+            //DO charge
+        }
         
-        ((SKLabelNode*)[self.center childNodeWithName:@"Pay"]).text=[NSString stringWithFormat:@"Charge"];
-        self.center.name=@"Charge";
-        self.center.strokeColor=[SKColor brownColor];
-        self.center.fillColor=[SKColor brownColor];
+    }
+    else
+    {
+        NSLog(@"cancel");
     }
 }
+
+/*
+ -(void)toggleCenter{
+ if([self.center.name isEqualToString:@"Charge"]){
+ ((SKLabelNode*)[self.center childNodeWithName:@"Charge"]).text=[NSString stringWithFormat:@"Pay"];
+ self.center.name=@"Pay";
+ self.center.strokeColor=[SKColor colorWithRed:0.15 green:0.8 blue:0.15 alpha:1.0];
+ self.center.fillColor=[SKColor colorWithRed:0.15 green:0.8 blue:0.15 alpha:1.0];
+ }
+ else{
+ 
+ ((SKLabelNode*)[self.center childNodeWithName:@"Charge"]).text=[NSString stringWithFormat:@"Charge"];
+ self.center.name=@"Charge";
+ self.center.strokeColor=[SKColor lightGrayColor];
+ self.center.fillColor=[SKColor lightGrayColor];
+ }
+ }
+ */
+
 - (void)didEndContact:(SKPhysicsContact *)contact {
     // do whatever you need to do when a contact ends
 }
+
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
     SKPhysicsBody *body;
@@ -306,13 +371,13 @@ float degToRad(float degree) {
                                               [SKAction scaleBy:opp duration:.01]
                                               ]];
     [_other runAction:[SKAction repeatAction:sequence count:1]];
-    if(self.mode==3){
+    if(self.mode==2){
         if(_other.physicsBody.categoryBitMask==peopleCategory){
             if([self.center.name isEqualToString:@"Pay"]){
-                ((SKLabelNode*)[self.center childNodeWithName:@"Pay"]).text=[NSString stringWithFormat:@"Pay %@",self.other.name];
+                ((SKLabelNode*)[self.center childNodeWithName:@"Charge"]).text=[NSString stringWithFormat:@"Pay %@",self.other.name];
             }
             else{
-                ((SKLabelNode*)[self.center childNodeWithName:@"Pay"]).text=[NSString stringWithFormat:@"Charge %@",self.other.name];
+                ((SKLabelNode*)[self.center childNodeWithName:@"Charge"]).text=[NSString stringWithFormat:@"Charge %@",self.other.name];
             }
         }
     }
