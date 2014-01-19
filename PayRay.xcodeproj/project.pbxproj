@@ -124,18 +124,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				A0C1AF47188B0C5400E83ACA /* SystemConfiguration.framework in Frameworks */,
 				A0C1AF45188B0C1300E83ACA /* Security.framework in Frameworks */,
 				A0C1AF43188B0C0900E83ACA /* CFNetwork.framework in Frameworks */,
 				A0C1AF41188B0BFD00E83ACA /* libc++.dylib in Frameworks */,
 				A0C1AF3F188B0BF200E83ACA /* libicucore.dylib in Frameworks */,
 				A0C1AF3D188B0BE200E83ACA /* Firebase.framework in Frameworks */,
-=======
 				3395FEF3188B1DCF00326E47 /* TesseractOCR.framework in Frameworks */,
 				3395FEF1188B1D9200326E47 /* libstdc++.6.0.9.dylib in Frameworks */,
 				3395FEE6188B120600326E47 /* CoreData.framework in Frameworks */,
->>>>>>> 4c173a42b7c5557b8df3ac09e12506c4f2408628
 				15C14909188A3D36004EBAC0 /* CoreLocation.framework in Frameworks */,
 				15C148D3188A3CC1004EBAC0 /* CoreGraphics.framework in Frameworks */,
 				15C148D5188A3CC1004EBAC0 /* UIKit.framework in Frameworks */,
@@ -181,18 +178,15 @@
 		15C148CF188A3CC1004EBAC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				A0C1AF46188B0C5400E83ACA /* SystemConfiguration.framework */,
 				A0C1AF44188B0C1300E83ACA /* Security.framework */,
 				A0C1AF42188B0C0900E83ACA /* CFNetwork.framework */,
 				A0C1AF40188B0BFD00E83ACA /* libc++.dylib */,
 				A0C1AF3E188B0BF200E83ACA /* libicucore.dylib */,
 				A0C1AF3C188B0BE200E83ACA /* Firebase.framework */,
-=======
 				3395FEF2188B1DCF00326E47 /* TesseractOCR.framework */,
 				3395FEF0188B1D9200326E47 /* libstdc++.6.0.9.dylib */,
 				3395FEE5188B120600326E47 /* CoreData.framework */,
->>>>>>> 4c173a42b7c5557b8df3ac09e12506c4f2408628
 				15C14908188A3D36004EBAC0 /* CoreLocation.framework */,
 				15C148D0188A3CC1004EBAC0 /* Foundation.framework */,
 				15C148D2188A3CC1004EBAC0 /* CoreGraphics.framework */,
@@ -567,20 +561,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-<<<<<<< HEAD
 					"/Users/aheifetz/Dropbox/iPhone\\ Apps/PayRay",
-=======
 					"/Users/Kshitij/Downloads/Tesseract-OCR-iOS-master/Products",
->>>>>>> 4c173a42b7c5557b8df3ac09e12506c4f2408628
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";
 				INFOPLIST_FILE = "PayRay/PayRay-Info.plist";
-<<<<<<< HEAD
 				OTHER_LDFLAGS = "-ObjC";
-=======
 				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
->>>>>>> 4c173a42b7c5557b8df3ac09e12506c4f2408628
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -594,20 +582,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-<<<<<<< HEAD
 					"/Users/aheifetz/Dropbox/iPhone\\ Apps/PayRay",
-=======
 					"/Users/Kshitij/Downloads/Tesseract-OCR-iOS-master/Products",
->>>>>>> 4c173a42b7c5557b8df3ac09e12506c4f2408628
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";
 				INFOPLIST_FILE = "PayRay/PayRay-Info.plist";
-<<<<<<< HEAD
 				OTHER_LDFLAGS = "-ObjC";
-=======
 				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
->>>>>>> 4c173a42b7c5557b8df3ac09e12506c4f2408628
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
