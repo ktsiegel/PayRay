@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import <Firebase/Firebase.h>
 
 @interface LoginViewController ()
 
@@ -41,7 +42,12 @@
     
     NSString* name = [self.nameField text];
     NSString* email = [self.emailField text];
-    NSNumber* uid = [NSNumber numberWithInt:arc4random_uniform(100000000)];
+    
+    NSNumber* uid;
+    Firebase* baseRef = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://pay-ray.firebaseIO-demo.com/USERS"]];
+    uid = [NSNumber numberWithInt:arc4random_uniform(100000000)];
+    Firebase* childRef = [baseRef childByAppendingPath: [NSString stringWithFormat:@"%@", uid]];
+    [childRef setValue:@{@"name": name, @"email": email}];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:name forKey:@"name"];
