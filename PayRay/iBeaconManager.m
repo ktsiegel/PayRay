@@ -131,35 +131,31 @@
     else if(_slave) {
         //We are a slave: get the distance to all other users and upload it to Firebase so the master can use it
         _slave = false;
-        int tableId = 1; //TODO
-        int beaconUserId = 1; //TODO
-        Firebase* tableUsersRef = [_baseRef childByAppendingPath:[NSString stringWithFormat:@"TABLES/%i/table_users/%d", tableId, beaconUserId]];
-
+        NSMutableArray* distances = [self getDistancesToBeacons:beacons];
+        //Send the distance objects off
+        
+        
     }
 }
-
--(void)getDistancesToBeacons: (NSArray*)beacons {
-    
-}
-
--(double)getDistanceToBeacon: (CLBeacon*)beacon {
+-(double)getDistanceToBeacon:(CLBeacon*)beacon {
     double accuracy = beacon.accuracy;
     return accuracy;
-    
 }
 
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(NSMutableArray*)getDistancesToBeacons: (NSArray*)beacons {
+    NSMutableArray* distances = [[NSMutableArray alloc] init];
+    for (CLBeacon* beacon in beacons) {
+        int majorValue = beacon.major.integerValue;
+        int minorValue = beacon.minor.integerValue;
+        NSString* beaconUserId = [NSString stringWithFormat:@"%04i%04i",majorValue, minorValue];
+        double distance = [self getDistanceToBeacon:beacon];
+        UsersDistance* ud = [[UsersDistance alloc] init];
+        ud.personA = _userId;
+        ud.personB = beaconUserId;
+        ud.dist = [NSNumber numberWithDouble:distance];
+        [distances addObject:ud];
+    }
+    return distances;
 }
 
 @end
