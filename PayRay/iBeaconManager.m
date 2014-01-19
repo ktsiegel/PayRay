@@ -19,16 +19,15 @@
 @implementation iBeaconManager {
     NSMutableDictionary *_beacons;
     CLLocationManager *_locationManager;
-    CLBeaconRegion *_beaconRegion;
+    CLBeaconRegion *_transmitRegion;
+    CLBeaconRegion *_monitorRegion;
     CBPeripheralManager* _peripheralManager;
-    BOOL _inProgress;
     NSMutableArray *_rangedBeacons;
     BOOL _master;
     BOOL _slave;
     NSString* _uuid;
     NSString* _userId;
     Firebase* _baseRef;
-    int _table;
     NSDictionary* _beaconPeripheralData;
 
 }
@@ -40,7 +39,6 @@
         _beacons = [[NSMutableDictionary alloc] init];
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
-        _inProgress = NO;
         _uuid = @"7AAF1FFA-7EA5-44A5-B4E8-0A8BBDF0B775";
         _baseRef = [[Firebase alloc] initWithUrl:@"https://pay-ray.firebaseIO-demo.com"];
     }
@@ -57,16 +55,18 @@
     NSUUID* uuid = [[NSUUID alloc] initWithUUIDString:_uuid];
     NSString* maj = [userId substringWithRange:NSMakeRange(0, 4)];
     NSString* min = [userId substringWithRange:NSMakeRange(0, 4)];
-    _beaconRegion =   [[CLBeaconRegion alloc] initWithProximityUUID:uuid
+    _transmitRegion =   [[CLBeaconRegion alloc] initWithProximityUUID:uuid
                                         major:maj.intValue
                                         minor:min.intValue
                                         identifier:@"PayRay"];
-    [_locationManager startRangingBeaconsInRegion:_beaconRegion];
+    _monitorRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"PayRay"];
+
+    [_locationManager startRangingBeaconsInRegion:_monitorRegion];
 
 }
 
 - (IBAction)transmitBeacon:(UIButton *)sender {
-    _beaconPeripheralData = [_beaconRegion peripheralDataWithMeasuredPower:nil];
+    _beaconPeripheralData = [_transmitRegion peripheralDataWithMeasuredPower:nil];
     _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
                                                                      queue:nil
                                                                    options:nil];
@@ -104,7 +104,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
-    [_locationManager startRangingBeaconsInRegion:_beaconRegion];
+    [_locationManager startRangingBeaconsInRegion:_transmitRegion];
 }
 
 

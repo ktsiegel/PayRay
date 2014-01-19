@@ -34,7 +34,6 @@
 		3395FEF1188B1D9200326E47 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3395FEF0188B1D9200326E47 /* libstdc++.6.0.9.dylib */; };
 		3395FEFF188B1FEE00326E47 /* ReceiptPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */; };
 		33F02BCC188B5E7800CD32A7 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33F02BCA188B5E7800CD32A7 /* TesseractOCR.framework */; };
-		33F02BCD188B5E7800CD32A7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33F02BCB188B5E7800CD32A7 /* Firebase.framework */; };
 		33F02BD3188B615E00CD32A7 /* eng.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 33F02BCF188B615E00CD32A7 /* eng.traineddata */; };
 		33F02BD4188B615E00CD32A7 /* equ.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 33F02BD0188B615E00CD32A7 /* equ.traineddata */; };
 		33F02BD5188B615E00CD32A7 /* grc.traineddata in Resources */ = {isa = PBXBuildFile; fileRef = 33F02BD1188B615E00CD32A7 /* grc.traineddata */; };
@@ -47,6 +46,7 @@
 		A0C1AF45188B0C1300E83ACA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1AF44188B0C1300E83ACA /* Security.framework */; };
 		A0C1AF47188B0C5400E83ACA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1AF46188B0C5400E83ACA /* SystemConfiguration.framework */; };
 		A0C1AF4E188B79A700E83ACA /* iBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF4D188B79A700E83ACA /* iBeaconManager.m */; };
+		A0C1AF50188B7DA000E83ACA /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1AF4F188B7DA000E83ACA /* Firebase.framework */; };
 		C576592FF993475CBA57B5C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F27687762FEE4E76A8F9162D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -100,7 +100,6 @@
 		3395FEFD188B1FEE00326E47 /* ReceiptPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptPicViewController.h; sourceTree = "<group>"; };
 		3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptPicViewController.m; sourceTree = "<group>"; };
 		33F02BCA188B5E7800CD32A7 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
-		33F02BCB188B5E7800CD32A7 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		33F02BCF188B615E00CD32A7 /* eng.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = eng.traineddata; sourceTree = "<group>"; };
 		33F02BD0188B615E00CD32A7 /* equ.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = equ.traineddata; sourceTree = "<group>"; };
 		33F02BD1188B615E00CD32A7 /* grc.traineddata */ = {isa = PBXFileReference; lastKnownFileType = file; path = grc.traineddata; sourceTree = "<group>"; };
@@ -117,6 +116,7 @@
 		A0C1AF46188B0C5400E83ACA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A0C1AF4C188B79A700E83ACA /* iBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBeaconManager.h; sourceTree = "<group>"; };
 		A0C1AF4D188B79A700E83ACA /* iBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBeaconManager.m; sourceTree = "<group>"; };
+		A0C1AF4F188B7DA000E83ACA /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		F27687762FEE4E76A8F9162D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,7 +128,7 @@
 				A0C1AF47188B0C5400E83ACA /* SystemConfiguration.framework in Frameworks */,
 				A0C1AF45188B0C1300E83ACA /* Security.framework in Frameworks */,
 				A0C1AF43188B0C0900E83ACA /* CFNetwork.framework in Frameworks */,
-				33F02BCD188B5E7800CD32A7 /* Firebase.framework in Frameworks */,
+				A0C1AF50188B7DA000E83ACA /* Firebase.framework in Frameworks */,
 				A0C1AF41188B0BFD00E83ACA /* libc++.dylib in Frameworks */,
 				A0C1AF3F188B0BF200E83ACA /* libicucore.dylib in Frameworks */,
 				3395FEF1188B1D9200326E47 /* libstdc++.6.0.9.dylib in Frameworks */,
@@ -179,8 +179,8 @@
 		15C148CF188A3CC1004EBAC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0C1AF4F188B7DA000E83ACA /* Firebase.framework */,
 				33F02BCA188B5E7800CD32A7 /* TesseractOCR.framework */,
-				33F02BCB188B5E7800CD32A7 /* Firebase.framework */,
 				A0C1AF46188B0C5400E83ACA /* SystemConfiguration.framework */,
 				A0C1AF44188B0C1300E83ACA /* Security.framework */,
 				A0C1AF42188B0C0900E83ACA /* CFNetwork.framework */,
@@ -565,6 +565,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Kshitij/Desktop/PayRay,
+					"/Users/aheifetz/Dropbox/iPhone\\ Apps/PayRay",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";
@@ -585,6 +586,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Kshitij/Desktop/PayRay,
+					"/Users/aheifetz/Dropbox/iPhone\\ Apps/PayRay",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";
