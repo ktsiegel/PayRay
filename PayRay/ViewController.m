@@ -13,7 +13,6 @@
 @interface ViewController ()
 @property NSMutableArray* people;
 @property SKView *spriteView;
-@property (nonatomic) iBeaconManager* beaconManager;
 @end
 
 @implementation ViewController
@@ -21,14 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.beaconManager = [iBeaconManager sharedIBeaconManager];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *uid = [defaults objectForKey:@"uid"];
-    
-    [self.beaconManager startIBeacon:uid];
-    
+
     SKView *spriteView = (SKView *) self.view;
     spriteView.showsDrawCount = YES;
     spriteView.showsNodeCount = YES;

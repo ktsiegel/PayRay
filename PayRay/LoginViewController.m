@@ -44,9 +44,9 @@
     NSString* email = [self.emailField text];
     
     NSNumber* uid;
-    Firebase* baseRef = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://pay-ray.firebaseIO-demo.com/USERS"]];
+    Firebase* baseRef = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://pay-ray.firebaseIO.com/USERS"]];
     uid = [NSNumber numberWithInt:arc4random_uniform(100000000)];
-    Firebase* childRef = [baseRef childByAppendingPath: [NSString stringWithFormat:@"%@", uid]];
+    Firebase* childRef = [baseRef childByAppendingPath: [NSString stringWithFormat:@"%8@", uid]];
     [childRef setValue:@{@"name": name, @"email": email}];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

@@ -49,7 +49,7 @@
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
         _uuid = @"7AAF1FFA-7EA5-44A5-B4E8-0A8BBDF0B775";
-        _baseRef = [[Firebase alloc] initWithUrl:@"https://pay-ray.firebaseIO-demo.com"];
+        _baseRef = [[Firebase alloc] initWithUrl:@"https://pay-ray.firebaseIO.com"];
     }
     return self;
 }
@@ -63,7 +63,7 @@
     _userId = userId;
     NSUUID* uuid = [[NSUUID alloc] initWithUUIDString:_uuid];
     NSString* maj = [userId substringWithRange:NSMakeRange(0, 4)];
-    NSString* min = [userId substringWithRange:NSMakeRange(0, 4)];
+    NSString* min = [userId substringWithRange:NSMakeRange(4, 4)];
     _transmitRegion =   [[CLBeaconRegion alloc] initWithProximityUUID:uuid
                                         major:maj.intValue
                                         minor:min.intValue
@@ -71,10 +71,11 @@
     _monitorRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"PayRay"];
 
     [_locationManager startRangingBeaconsInRegion:_monitorRegion];
+    [self transmitBeacon];
 
 }
 
-- (IBAction)transmitBeacon:(UIButton *)sender {
+- (void)transmitBeacon {
     _beaconPeripheralData = [_transmitRegion peripheralDataWithMeasuredPower:nil];
     _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
                                                                      queue:nil
@@ -93,13 +94,17 @@
 -(NSMutableArray*)addUsers:(NSArray*)beacons toTable:(int)tableId
 {
     NSMutableArray* users = [[NSMutableArray alloc] init];
+    NSLog(@"Started");
     for (CLBeacon *beacon in beacons) {
         int majorValue = beacon.major.integerValue;
         int minorValue = beacon.minor.integerValue;
         NSString* beaconUserId = [NSString stringWithFormat:@"%04i%04i",majorValue, minorValue];
+        NSLog(@"%@", beaconUserId);
         [users addObject:beaconUserId];
-        Firebase* tableUsersRef = [_baseRef childByAppendingPath:[NSString stringWithFormat:@"TABLES/%i/table_users/%@", tableId, beaconUserId]];
-        [tableUsersRef setValue:@{}];
+        Firebase* tableUsersRef = [_baseRef childByAppendingPath:[NSString stringWithFormat:@"TABLES/%i/table_users/", tableId, beaconUserId]];
+        NSLog(@"Table is the following: %@", [NSString stringWithFormat:@"TABLES/%i/table_users/%@", tableId, beaconUserId]);
+        
+        [tableUsersRef updateChildValues:@{beaconUserId: beaconUserId}];
     }
     return users;
 }
@@ -131,12 +136,13 @@
         _master = false;
         //Add a table to TABLES
         Firebase* tablesRef = [_baseRef childByAppendingPath:@"TABLES"];
-        [tablesRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-            int newId = snapshot.childrenCount;
+        [tablesRef observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            int newId = snapshot.childrenCount + 1;
             
             //First, add yourself to the table
-            NSString* newIdString = [NSString stringWithFormat:@"%i/table_users/%@",newId, _userId];
-            [[tablesRef childByAppendingPath:newIdString] setValue:@{}];
+            NSString* newIdString = [NSString stringWithFormat:@"%i/table_users",newId, _userId];
+            NSLog(newIdString);
+            [[tablesRef childByAppendingPath:newIdString] updateChildValues:@{_userId: _userId}];
             
             //Next, add all users to this table
             NSMutableArray* users = [self addUsers:beacons toTable:newId];
@@ -151,6 +157,7 @@
     else if(_slave) {
         //We are a slave: get the distance to all other users and upload it to Firebase so the master can use it
         _slave = false;
+        NSLog(@"made it!");
         NSMutableArray* distances = [self getDistancesToBeacons:beacons];
         //Send the distance objects off
         

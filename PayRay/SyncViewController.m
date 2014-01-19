@@ -8,9 +8,11 @@
 
 #import "SyncViewController.h"
 #import "AppDelegate.h"
+#import "iBeaconManager.h"
+#import <Firebase/Firebase.h>
 
 @interface SyncViewController ()
-
+@property (nonatomic) iBeaconManager* beaconManager;
 @end
 
 @implementation SyncViewController
@@ -29,6 +31,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.beaconManager = [iBeaconManager sharedIBeaconManager];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [defaults objectForKey:@"uid"];
+    
+    [self.beaconManager startIBeacon:uid];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,6 +48,20 @@
 - (IBAction)syncApp:(UIButton *)sender {
     [self.syncButton setBackgroundColor:[UIColor grayColor]];
     
-    [self performSegueWithIdentifier: @"syncSegue" sender: sender];
+    [self.beaconManager createTable];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [defaults objectForKey:@"uid"];
+    
+    NSString* url = [NSString stringWithFormat: @"https://pay-ray.firebaseio.com/USERS/%@/table", uid];
+    Firebase* dataRef = [[Firebase alloc] initWithUrl:url];
+    [dataRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        NSLog(@"Received: %@", snapshot.value);
+    }];
+    
+    double delayInSeconds = 20.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self performSegueWithIdentifier:@"syncSegue" sender:sender];
+    });
 }
 @end
