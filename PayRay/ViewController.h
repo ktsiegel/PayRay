@@ -6,10 +6,12 @@
 //  Copyright (c) 2014 Kathryn Siegel. All rights reserved.
 //
 #import <UIKit/UIKit.h>
+#import "iBeaconManager.h"
 
 @interface ViewController : UIViewController
 -(void)spaceshipReady;
 
+@property(nonatomic, strong) iBeaconManager* beaconManager;
 
 
 @end

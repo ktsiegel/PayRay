@@ -26,6 +26,7 @@
 		15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490B188A6601004EBAC0 /* UsersDistance.m */; };
 		15C1490F188A6A7C004EBAC0 /* CalcOrderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */; };
 		15C14912188B0AEF004EBAC0 /* PaymentUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C14911188B0AEF004EBAC0 /* PaymentUtil.m */; };
+		335A4B50188B7CDA0051EDB6 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 335A4B4F188B7CDA0051EDB6 /* SyncViewController.m */; };
 		3395FEE4188B0D6C00326E47 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEE3188B0D6C00326E47 /* LoginViewController.m */; };
 		3395FEE6188B120600326E47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3395FEE5188B120600326E47 /* CoreData.framework */; };
 		3395FEE9188B122100326E47 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEE7188B122100326E47 /* UserModel.xcdatamodeld */; };
@@ -87,6 +88,8 @@
 		15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalcOrderUtil.m; sourceTree = "<group>"; };
 		15C14910188B0AEF004EBAC0 /* PaymentUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentUtil.h; sourceTree = "<group>"; };
 		15C14911188B0AEF004EBAC0 /* PaymentUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentUtil.m; sourceTree = "<group>"; };
+		335A4B4E188B7CDA0051EDB6 /* SyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncViewController.h; sourceTree = "<group>"; };
+		335A4B4F188B7CDA0051EDB6 /* SyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncViewController.m; sourceTree = "<group>"; };
 		3395FEE2188B0D6C00326E47 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3395FEE3188B0D6C00326E47 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		3395FEE5188B120600326E47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -225,6 +228,8 @@
 				3395FEEE188B1BB900326E47 /* User.m */,
 				3395FEFD188B1FEE00326E47 /* ReceiptPicViewController.h */,
 				3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */,
+				335A4B4E188B7CDA0051EDB6 /* SyncViewController.h */,
+				335A4B4F188B7CDA0051EDB6 /* SyncViewController.m */,
 			);
 			path = PayRay;
 			sourceTree = "<group>";
@@ -411,6 +416,7 @@
 				3395FEE4188B0D6C00326E47 /* LoginViewController.m in Sources */,
 				15C148E1188A3CC1004EBAC0 /* AppDelegate.m in Sources */,
 				A0C1AF3B188AFF8000E83ACA /* LocationModel.m in Sources */,
+				335A4B50188B7CDA0051EDB6 /* SyncViewController.m in Sources */,
 				3395FEEF188B1BB900326E47 /* User.m in Sources */,
 				15C148DD188A3CC1004EBAC0 /* main.m in Sources */,
 				3395FEFF188B1FEE00326E47 /* ReceiptPicViewController.m in Sources */,
