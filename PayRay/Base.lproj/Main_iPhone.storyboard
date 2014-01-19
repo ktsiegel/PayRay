@@ -116,13 +116,24 @@
                                 </state>
                                 <connections>
                                     <action selector="join:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pzQ-yC-7OO"/>
-                                    <segue destination="vzY-Hd-zry" kind="modal" id="Mv6-fS-fkr"/>
+                                    <action selector="syncApp:" destination="FHt-v4-4Bm" eventType="touchUpInside" id="Umf-k2-66v"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Place your phone on the table." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nv-Ee-Ggu">
+                                <rect key="frame" x="43" y="237" width="235" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Oyf-fI-b8J"/>
+                    <connections>
+                        <outlet property="syncButton" destination="pdW-rm-Dh6" id="w9A-1C-dcj"/>
+                        <segue destination="vzY-Hd-zry" kind="modal" identifier="syncSegue" id="qgk-Wv-3Y6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgX-FF-aiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

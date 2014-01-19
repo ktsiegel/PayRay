@@ -11,7 +11,5 @@
 @interface ViewController : UIViewController
 -(void)spaceshipReady;
 
-@property(nonatomic, strong) iBeaconManager* beaconManager;
-
 
 @end

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SyncViewController : UIViewController
+- (IBAction)syncApp:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIButton *syncButton;
+
 
 @end

@@ -7,12 +7,14 @@
 //
 
 #import "SyncViewController.h"
+#import "AppDelegate.h"
 
 @interface SyncViewController ()
 
 @end
 
 @implementation SyncViewController
+@synthesize syncButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,4 +37,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)syncApp:(UIButton *)sender {
+    [self.syncButton setBackgroundColor:[UIColor grayColor]];
+    
+    [self performSegueWithIdentifier: @"syncSegue" sender: sender];
+}
 @end

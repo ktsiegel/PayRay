@@ -7,7 +7,6 @@
 //
 
 #import "LoginViewController.h"
-#import "User.h"
 #import "ViewController.h"
 #import "AppDelegate.h"
 
@@ -39,18 +38,16 @@
 }
 
 - (IBAction)join:(UIButton *)sender {
-    NSManagedObjectContext *context = [(AppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    User *user = [NSEntityDescription
-                    insertNewObjectForEntityForName:@"User"
-                    inManagedObjectContext:context];
-    user.name = [self.nameField text];
-    user.email = [self.emailField text];
-    user.uid = [NSNumber numberWithInt:arc4random_uniform(100000000)];
     
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
+    NSString* name = [self.nameField text];
+    NSString* email = [self.emailField text];
+    NSNumber* uid = [NSNumber numberWithInt:arc4random_uniform(100000000)];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:name forKey:@"name"];
+    [defaults setObject:email forKey:@"email"];
+    [defaults setObject:[uid stringValue] forKey:@"uid"];
+    [defaults synchronize];
     
     [self performSegueWithIdentifier: @"loginSegue" sender: sender];
 }

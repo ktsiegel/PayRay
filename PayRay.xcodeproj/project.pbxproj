@@ -29,8 +29,6 @@
 		335A4B50188B7CDA0051EDB6 /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 335A4B4F188B7CDA0051EDB6 /* SyncViewController.m */; };
 		3395FEE4188B0D6C00326E47 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEE3188B0D6C00326E47 /* LoginViewController.m */; };
 		3395FEE6188B120600326E47 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3395FEE5188B120600326E47 /* CoreData.framework */; };
-		3395FEE9188B122100326E47 /* UserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEE7188B122100326E47 /* UserModel.xcdatamodeld */; };
-		3395FEEF188B1BB900326E47 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEEE188B1BB900326E47 /* User.m */; };
 		3395FEF1188B1D9200326E47 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3395FEF0188B1D9200326E47 /* libstdc++.6.0.9.dylib */; };
 		3395FEFF188B1FEE00326E47 /* ReceiptPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */; };
 		33F02BCC188B5E7800CD32A7 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33F02BCA188B5E7800CD32A7 /* TesseractOCR.framework */; };
@@ -93,9 +91,6 @@
 		3395FEE2188B0D6C00326E47 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3395FEE3188B0D6C00326E47 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		3395FEE5188B120600326E47 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		3395FEE8188B122100326E47 /* UserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserModel.xcdatamodel; sourceTree = "<group>"; };
-		3395FEED188B1BB900326E47 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		3395FEEE188B1BB900326E47 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3395FEF0188B1D9200326E47 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		3395FEFD188B1FEE00326E47 /* ReceiptPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptPicViewController.h; sourceTree = "<group>"; };
 		3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptPicViewController.m; sourceTree = "<group>"; };
@@ -223,9 +218,6 @@
 				15C1490E188A6A7C004EBAC0 /* CalcOrderUtil.m */,
 				3395FEE2188B0D6C00326E47 /* LoginViewController.h */,
 				3395FEE3188B0D6C00326E47 /* LoginViewController.m */,
-				3395FEE7188B122100326E47 /* UserModel.xcdatamodeld */,
-				3395FEED188B1BB900326E47 /* User.h */,
-				3395FEEE188B1BB900326E47 /* User.m */,
 				3395FEFD188B1FEE00326E47 /* ReceiptPicViewController.h */,
 				3395FEFE188B1FEE00326E47 /* ReceiptPicViewController.m */,
 				335A4B4E188B7CDA0051EDB6 /* SyncViewController.h */,
@@ -417,10 +409,8 @@
 				15C148E1188A3CC1004EBAC0 /* AppDelegate.m in Sources */,
 				A0C1AF3B188AFF8000E83ACA /* LocationModel.m in Sources */,
 				335A4B50188B7CDA0051EDB6 /* SyncViewController.m in Sources */,
-				3395FEEF188B1BB900326E47 /* User.m in Sources */,
 				15C148DD188A3CC1004EBAC0 /* main.m in Sources */,
 				3395FEFF188B1FEE00326E47 /* ReceiptPicViewController.m in Sources */,
-				3395FEE9188B122100326E47 /* UserModel.xcdatamodeld in Sources */,
 				A0C1AF4E188B79A700E83ACA /* iBeaconManager.m in Sources */,
 				15C1490C188A6601004EBAC0 /* UsersDistance.m in Sources */,
 				15C14912188B0AEF004EBAC0 /* PaymentUtil.m in Sources */,
@@ -570,8 +560,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";
 				INFOPLIST_FILE = "PayRay/PayRay-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
-				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-ObjC",
+				);
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-lstdc++",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -591,8 +587,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PayRay/PayRay-Prefix.pch";
 				INFOPLIST_FILE = "PayRay/PayRay-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
-				"OTHER_LDFLAGS[arch=*]" = "-lstdc++";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lstdc++",
+				);
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-lstdc++",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -671,19 +673,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		3395FEE7188B122100326E47 /* UserModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3395FEE8188B122100326E47 /* UserModel.xcdatamodel */,
-			);
-			currentVersion = 3395FEE8188B122100326E47 /* UserModel.xcdatamodel */;
-			path = UserModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 15C148C5188A3CC1004EBAC0 /* Project object */;
 }

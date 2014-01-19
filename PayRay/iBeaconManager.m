@@ -32,6 +32,15 @@
 
 }
 
++(iBeaconManager*) sharedIBeaconManager {
+    static iBeaconManager* manager;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [[iBeaconManager alloc] init];
+    });
+    return manager;
+}
+
 - (id)init
 {
     self = [super init];
