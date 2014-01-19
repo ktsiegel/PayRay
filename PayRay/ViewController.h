@@ -9,6 +9,7 @@
 #import "iBeaconManager.h"
 
 @interface ViewController : UIViewController
+@property(nonatomic, strong) NSString* renderedText;
 -(void)spaceshipReady;
 
 

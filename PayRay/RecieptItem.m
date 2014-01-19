@@ -9,13 +9,13 @@
 #import "RecieptItem.h"
 
 @implementation RecieptItem
-@dynamic item;
-@dynamic cost;
--(id)initWithItem :(NSString*)item :(NSNumber*) cost{
-    if(!(self=[super init]))
-        return nil;
-    self.item=item;
-    self.cost=cost;
+
+-(id)initWithItem :(NSString*)item cost:(NSString*) cost{
+    self = [super init];
+    if(self) {
+        self.item=item;
+        self.cost=cost;
+    }
     return self;
 }
 @end

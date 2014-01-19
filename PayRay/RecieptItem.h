@@ -10,5 +10,6 @@
 
 @interface RecieptItem : NSObject
 @property (nonatomic, retain) NSString * item;
-@property (nonatomic, retain) NSNumber * cost;
+@property (nonatomic, retain) NSString * cost;
+-(id)initWithItem:(NSString*)item cost:(NSString*) cost;
 @end

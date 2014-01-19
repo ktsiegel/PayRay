@@ -49,6 +49,7 @@
 		A0C1AF45188B0C1300E83ACA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1AF44188B0C1300E83ACA /* Security.framework */; };
 		A0C1AF47188B0C5400E83ACA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1AF46188B0C5400E83ACA /* SystemConfiguration.framework */; };
 		A0C1AF4E188B79A700E83ACA /* iBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C1AF4D188B79A700E83ACA /* iBeaconManager.m */; };
+		A0C1AF77188BD0EA00E83ACA /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C1AF76188BD0EA00E83ACA /* MediaPlayer.framework */; };
 		C576592FF993475CBA57B5C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F27687762FEE4E76A8F9162D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,7 @@
 		A0C1AF46188B0C5400E83ACA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A0C1AF4C188B79A700E83ACA /* iBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBeaconManager.h; sourceTree = "<group>"; };
 		A0C1AF4D188B79A700E83ACA /* iBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBeaconManager.m; sourceTree = "<group>"; };
+		A0C1AF76188BD0EA00E83ACA /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		F27687762FEE4E76A8F9162D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -132,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0C1AF77188BD0EA00E83ACA /* MediaPlayer.framework in Frameworks */,
 				A0C1AF47188B0C5400E83ACA /* SystemConfiguration.framework in Frameworks */,
 				A0C1AF45188B0C1300E83ACA /* Security.framework in Frameworks */,
 				A0C1AF43188B0C0900E83ACA /* CFNetwork.framework in Frameworks */,
@@ -186,6 +189,7 @@
 		15C148CF188A3CC1004EBAC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0C1AF76188BD0EA00E83ACA /* MediaPlayer.framework */,
 				15C14979188B9CD3004EBAC0 /* Firebase.framework */,
 				15C14977188B9CCB004EBAC0 /* TesseractOCR.framework */,
 				A0C1AF46188B0C5400E83ACA /* SystemConfiguration.framework */,

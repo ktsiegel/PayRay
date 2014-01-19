@@ -8,9 +8,10 @@
 
 #import "ReceiptPicViewController.h"
 #import <TesseractOCR/TesseractOCR.h>
+#import "ViewController.h"
 
 @interface ReceiptPicViewController ()
-
+@property NSMutableArray* items;
 @end
 
 @implementation ReceiptPicViewController
@@ -78,9 +79,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view.
     
     
+}
+- (BOOL)textFieldShouldReturn:(UITextView *)textField {
+    if (textField == self.imageText) {
+        [textField resignFirstResponder];
+    }
+    return NO;
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear: animated];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    // Do any additional setup after loading the view from its nib.
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear: animated];
+    //[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object: nil];
+    //[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object: nil];
+    
+    
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (BOOL)shouldCancelImageRecognitionForTesseract:(Tesseract*)tesseract
@@ -93,6 +117,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"approveSegue"]){
+        ViewController *controller = (ViewController *)segue.destinationViewController;
+        controller.renderedText = self.imageText.text;
+    }
+}
+-(IBAction)approveButton:(id)sender{
+    [self performSegueWithIdentifier: @"approveSegue" sender:self];
 }
 
 @end

@@ -24,6 +24,7 @@ static NSString * const kAnimalNodeName = @"movable";
 @property (nonatomic, strong) SKShapeNode *other;
 @property UIAlertView *payMessage;
 @property UIAlertView *chargeMessage;
+@property int index;
 
 enum MovementMode {
     DEFAULT = 0,
@@ -36,7 +37,7 @@ static const uint32_t centerCategory = 0x1 << 0;
 static const uint32_t peopleCategory = 0x1 << 1;
 
 @implementation SpaceshipScene
-
+@synthesize purchases;
 - (void)didMoveToView:(SKView *)view
 {
     if (!self.contentCreated)
@@ -56,6 +57,7 @@ static const uint32_t peopleCategory = 0x1 << 1;
     self.viewController=(ViewController *)responder;
     [self.viewController spaceshipReady];
     self.physicsWorld.gravity = CGVectorMake(0,0);
+    self.index=0;
 }
 
 // Called first
@@ -75,6 +77,9 @@ static const uint32_t peopleCategory = 0x1 << 1;
     self.center=[self newCenterWith:payColor :120 :@"Charge"];
     self.center.position = CGPointMake(self.size.width/2, self.size.height/2);
     self.center.name=@"Charge";
+    SKLabelNode * itemTag=[self newNameNode:@"Item"];
+    itemTag.position=CGPointMake(0, itemTag.frame.size.height / 2);
+    [ball addChild:itemTag];
     [self addChild:self.center];
     self.count=0; // # of people who are not you
     self.mode=DEFAULT; // mode of center thing: 0 = ready, 1 = dragging, 2 = touched but not dragged
@@ -137,6 +142,11 @@ static const uint32_t peopleCategory = 0x1 << 1;
     }
     
     [self movePeopleTowardsAngles:angleDict];
+}
+-(void)popPurchases:(NSMutableArray*) purch{
+    self.purchases=purch;
+    ((SKLabelNode*)[self.center childNodeWithName:@"Charge"]).text=[NSString stringWithFormat:@"Item:%@ Charge %@",((RecieptItem*)self.purchases[0]).cost, self.other.name];
+    //[self movePeopleTowardsAngles:angleDict];
 }
 
 -(void)movePeopleTowardsAngles:(NSMutableDictionary *)angleDict {

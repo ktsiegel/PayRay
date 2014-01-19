@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <TesseractOCR/TesseractOCR.h>
 
-@interface ReceiptPicViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, TesseractDelegate>
+@interface ReceiptPicViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, TesseractDelegate, UITextViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextView *imageText;
+- (IBAction)approveButton:(id)sender;
 
 
 @end
