@@ -14,6 +14,7 @@
 NSObject <CLLocationManagerDelegate, CBPeripheralManagerDelegate>
 -(void) startIBeacon: (NSString*)userId;
 -(void)createTable;
+-(void)enslave;
 +(iBeaconManager*) sharedIBeaconManager;
 
 @end

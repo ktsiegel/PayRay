@@ -335,6 +335,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Kathryn Siegel";
 				TargetAttributes = {
+					15C148CC188A3CC1004EBAC0 = {
+						DevelopmentTeam = H3LHQB58X2;
+					};
 					15C148F0188A3CC1004EBAC0 = {
 						TestTargetID = 15C148CC188A3CC1004EBAC0;
 					};
@@ -576,6 +579,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/kathrynsiegel/Development/PayRay,
@@ -592,6 +597,7 @@
 					"-v",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -602,6 +608,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/kathrynsiegel/Development/PayRay,
@@ -618,6 +626,7 @@
 					"-v",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -55,10 +55,15 @@
     NSString* url = [NSString stringWithFormat: @"https://pay-ray.firebaseio.com/USERS/%@/table", uid];
     Firebase* dataRef = [[Firebase alloc] initWithUrl:url];
     [dataRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        NSLog(@"Received: %@", snapshot.value);
+        
+        NSLog(@"Received table value: %@", snapshot.value);
+        if(snapshot.value) {
+            [self.beaconManager enslave];
+        }
+        
     }];
     
-    double delayInSeconds = 20.0;
+    double delayInSeconds = 5.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self performSegueWithIdentifier:@"syncSegue" sender:sender];

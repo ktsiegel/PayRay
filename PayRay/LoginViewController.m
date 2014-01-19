@@ -46,7 +46,8 @@
     NSNumber* uid;
     Firebase* baseRef = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"https://pay-ray.firebaseIO.com/USERS"]];
     uid = [NSNumber numberWithInt:arc4random_uniform(100000000)];
-    Firebase* childRef = [baseRef childByAppendingPath: [NSString stringWithFormat:@"%8@", uid]];
+    int i_uid = [uid integerValue];
+    Firebase* childRef = [baseRef childByAppendingPath: [NSString stringWithFormat:@"%08i", i_uid]];
     [childRef setValue:@{@"name": name, @"email": email}];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

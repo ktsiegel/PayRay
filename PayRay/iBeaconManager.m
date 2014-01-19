@@ -58,6 +58,9 @@
 {
     _master = true;
 }
+-(void)enslave {
+    _slave = true;
+}
 
 -(void) startIBeacon: (NSString*)userId {
     _userId = userId;
@@ -157,7 +160,7 @@
     else if(_slave) {
         //We are a slave: get the distance to all other users and upload it to Firebase so the master can use it
         _slave = false;
-        NSLog(@"made it!");
+        NSLog(@"slave runs");
         NSMutableArray* distances = [self getDistancesToBeacons:beacons];
         //Send the distance objects off
         
@@ -176,6 +179,7 @@
         int minorValue = beacon.minor.integerValue;
         NSString* beaconUserId = [NSString stringWithFormat:@"%04i%04i",majorValue, minorValue];
         double distance = [self getDistanceToBeacon:beacon];
+        NSLog(@"Distance to beacon %@ is %f", beaconUserId, distance);
         UsersDistance* ud = [[UsersDistance alloc] init];
         ud.personA = _userId;
         ud.personB = beaconUserId;
