@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>40EFBD60-F163-498C-8053-280974C36374</string>
+	<string>E2BABF72-EA41-4309-9ABF-B104BF528D93</string>
 	<key>IDESourceControlProjectName</key>
 	<string>PayRay</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>15B2BD66-04F3-4552-8779-FD373B2553EE</key>
+		<key>5324F052-CF40-4768-975A-AF0A24D8DA5D</key>
 		<string>https://github.com/kathrynsiegel/PayRay.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>PayRay.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>15B2BD66-04F3-4552-8779-FD373B2553EE</key>
+		<key>5324F052-CF40-4768-975A-AF0A24D8DA5D</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>15B2BD66-04F3-4552-8779-FD373B2553EE</string>
+	<string>5324F052-CF40-4768-975A-AF0A24D8DA5D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>15B2BD66-04F3-4552-8779-FD373B2553EE</string>
+			<string>5324F052-CF40-4768-975A-AF0A24D8DA5D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>PayRay</string>
 		</dict>
