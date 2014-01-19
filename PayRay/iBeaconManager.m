@@ -131,7 +131,9 @@
     else if(_slave) {
         //We are a slave: get the distance to all other users and upload it to Firebase so the master can use it
         _slave = false;
-        Firebase* tableUsersRef = [_baseRef childByAppendingPath:[NSString stringWithFormat:@"TABLES/%i/table_users/%@", tableId, beaconUserId]];
+        int tableId = 1; //TODO
+        int beaconUserId = 1; //TODO
+        Firebase* tableUsersRef = [_baseRef childByAppendingPath:[NSString stringWithFormat:@"TABLES/%i/table_users/%d", tableId, beaconUserId]];
 
     }
 }

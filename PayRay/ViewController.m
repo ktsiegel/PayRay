@@ -7,7 +7,6 @@
 //
 #import <SpriteKit/SpriteKit.h>
 #import "ViewController.h"
-#import "HelloScene.h"
 #import "SpaceshipScene.h"
 
 @interface ViewController ()
@@ -27,7 +26,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-    HelloScene* hello = [[HelloScene alloc] initWithSize:CGSizeMake(768,1024)];
+    SpaceshipScene* hello = [[SpaceshipScene alloc] initWithSize:CGSizeMake(768,1024)];
     self.spriteView = (SKView *) self.view;
     [self.spriteView presentScene: hello];
     self.people=[NSMutableArray arrayWithObjects:@"alice",@"tim",@"bob",@"helen",@"joe",@"water", nil];
