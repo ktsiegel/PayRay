@@ -9,6 +9,7 @@
 #import "iBeaconManager.h"
 #import "ViewController.h"
 #import "LocationModel.h"
+#import "UserDistance.h"
 #import <Firebase/Firebase.h>
 
 @interface iBeaconManager ()
@@ -68,6 +69,15 @@
     _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
                                                                      queue:nil
                                                                    options:nil];
+}
+
+-(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
+    if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
+        [_peripheralManager startAdvertising: _beaconPeripheralData];
+    } else if (peripheral.state == CBPeripheralManagerStatePoweredOff) {
+        NSLog(@"Powered Off");
+        [_peripheralManager stopAdvertising];
+    }
 }
 
 -(NSMutableArray*)addUsers:(NSArray*)beacons toTable:(int)tableId
