@@ -87,7 +87,9 @@
     while (range.location != NSNotFound) {
         purchase = [text substringWithRange: range];
         [purchases addObject: [[RecieptItem alloc] initWithItem :[NSString stringWithFormat: @"item %i",count] cost: purchase]];
-        
+        int end = range.location + range.length;
+        text = [text substringFromIndex:end];
+        range = [regex rangeOfFirstMatchInString:text options:0 range:NSMakeRange(0, [text length])];
         
         count++;
     }

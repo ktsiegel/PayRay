@@ -8,17 +8,22 @@
 
 #import "CalcOrderUtil.h"
 #import "UsersDistance.h"
+#import <Firebase/Firebase.h>
 
+@interface CalcOrderUtil ()
+@property NSDictionary* headings;
+@end
 @implementation CalcOrderUtil
+
 
 @synthesize clockwiseOrder;
 
-- (id)initWithMainPerson: (NSString*) identifier andDistances: (NSMutableArray*)distances andOrientations: (NSMutableDictionary*)orientations {
+- (id)initWithMainPerson: (NSString*) identifier andDistances: (NSMutableArray*)distances{
     self = [super init];
     if (self) {
-        NSMutableArray* tempClockwiseOrder = [self findOrderFromPerson:identifier WithDistances:distances andOrientations:orientations];
+        NSMutableArray* tempClockwiseOrder = [self findOrderFromPerson:identifier WithDistances:distances];
         NSString* personBearing = [tempClockwiseOrder objectAtIndex:[tempClockwiseOrder count]/4];
-        NSNumber* personOrientation = [orientations objectForKey:personBearing];
+        NSNumber* personOrientation = [_headings objectForKey:personBearing];
         if ([personOrientation doubleValue] > M_PI) {
             self.clockwiseOrder = [self reverseOrder: tempClockwiseOrder];
         } else {
@@ -37,31 +42,61 @@
     return narr;
 }
 
--(NSMutableArray*) findOrderFromPerson: (NSString*) person WithDistances: (NSMutableArray*) distances andOrientations: (NSMutableDictionary*) orientations {
-    
-    NSMutableArray* result = [[NSMutableArray alloc] init];
-    NSArray* allKeys = [orientations allKeys];
-    NSMutableDictionary* distanceArray = [self calcDistancesArray: distances fromPerson: person withPeople: allKeys];
-    [result addObject:person];
-    NSMutableArray* neighbors = [self findNeighborsOf:person usingDistances:[distanceArray objectForKey:person]];
-    NSString* right = [neighbors objectAtIndex:1];
-    NSString* old = person;
-    while ([right isEqualToString:person] == NO) {
-        [result addObject:right];
-        neighbors = [self findNeighborsOf:right usingDistances:[distanceArray objectForKey:right]];
-        NSString* neighborA = [neighbors objectAtIndex:0];
-        NSString* neighborB = [neighbors objectAtIndex:1];
-        if ([neighborA isEqualToString:old] == YES || [neighborB isEqualToString:old] == YES) {
-            if ([neighborA isEqualToString:old] == YES) {
-                right = neighborB;
-            } else {
-                right = neighborA;
+-(NSMutableArray*) findOrderFromPerson: (NSString*) person WithDistances: (NSMutableArray*) distances {
+    Firebase* baseRef = [[Firebase alloc] initWithUrl:@"https://pay-ray.firebaseio.com"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [defaults objectForKey:@"uid"];
+    Firebase* userTable = [baseRef childByAppendingPath:[NSString stringWithFormat:@"USERS/%@/table", uid]];
+    NSMutableArray* distancesArray;
+    [userTable observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *userSnapshot) {
+        NSString* table = userSnapshot.value;
+        Firebase* tableRef = [baseRef childByAppendingPath:[NSString stringWithFormat:@"TABLES/%@", uid]];
+        [tableRef observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *tableSnapshot) {
+            NSDictionary* table = tableSnapshot.value;
+            for(NSString* user in table) {
+                NSDictionary* value = [table objectForKey:user];
+                [_headings setValue:[value objectForKey:@"center_heading"] forKey:user];
+                NSDictionary* distances = [value objectForKey:@"distances"];
+                for(NSString* key in distances) {
+                    UsersDistance* ud = [[UsersDistance alloc] init];
+                    NSNumber* distance = [distances objectForKey:key];
+                    ud.personA = user;
+                    ud.personB = key;
+                    ud.dist = distance;
+                    [distancesArray addObject:ud];
+                }
             }
-            old = right;
-        } else {
-            NSLog(@"Error in finding circle");
+        }];}];
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+    NSArray* allKeys = [_headings allKeys];
+    if ([allKeys count] > 2) {
+        NSMutableDictionary* distanceArray = [self calcDistancesArray:distances fromPerson:person withPeople:allKeys];
+        [result addObject:person];
+        NSMutableArray* neighbors = [self findNeighborsOf:person usingDistances:[distanceArray objectForKey:person]];
+        NSString* right = [neighbors objectAtIndex:1];
+        NSString* old = person;
+        while ([right isEqualToString:person] == NO) {
+            [result addObject:right];
+            neighbors = [self findNeighborsOf:right usingDistances:[distanceArray objectForKey:right]];
+            NSString* neighborA = [neighbors objectAtIndex:0];
+            NSString* neighborB = [neighbors objectAtIndex:1];
+            if ([neighborA isEqualToString:old] == YES || [neighborB isEqualToString:old] == YES) {
+                if ([neighborA isEqualToString:old] == YES) {
+                    right = neighborB;
+                } else {
+                    right = neighborA;
+                }
+                old = right;
+            } else {
+                NSLog(@"Error in finding circle");
+            }
+        }
+    } else {
+        for (int i=0; i<[allKeys count]; i++) {
+            [result addObject:[allKeys objectAtIndex:i]];
         }
     }
+    
     return result;
 }
 

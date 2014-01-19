@@ -11,6 +11,7 @@
 #import "LocationModel.h"
 #import "UsersDistance.h"
 #import <Firebase/Firebase.h>
+#import "CalcOrderUtil.h"
 
 @interface iBeaconManager ()
 
@@ -29,8 +30,10 @@
     BOOL _slave;
     NSString* _uuid;
     NSString* _userId;
+    NSString* _tableId;
     Firebase* _baseRef;
     NSDictionary* _beaconPeripheralData;
+    int count;
 
 }
 
@@ -54,6 +57,7 @@
         _locationManager.delegate = self;
         _uuid = @"7AAF1FFA-7EA5-44A5-B4E8-0A8BBDF0B775";
         _baseRef = [[Firebase alloc] initWithUrl:@"https://pay-ray.firebaseIO.com"];
+        count=0;
     }
     return self;
 }
@@ -79,6 +83,9 @@
     _monitorRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"PayRay"];
 
     [_locationManager startRangingBeaconsInRegion:_monitorRegion];
+    
+    
+    
     [self transmitBeacon];
 
 }
@@ -140,6 +147,7 @@
               [beacons count] > 1 ? @"beacons" : @"beacon");
     }
     if(_master) {
+        _master = false;
         //We are the master: add everyone else in range to the table only once
         //Add a table to TABLES
         Firebase* tablesRef = [_baseRef childByAppendingPath:@"TABLES"];
@@ -150,6 +158,7 @@
             NSString* newIdString = [NSString stringWithFormat:@"%i/table_users",newId, _userId];
             NSLog(newIdString);
             [[tablesRef childByAppendingPath:newIdString] updateChildValues:@{_userId: _userId}];
+            _tableId = newIdString;
             
             //Next, add all users to this table
             NSMutableArray* users = [self addUsers:beacons toTable:newId];
@@ -162,12 +171,31 @@
         }];
     }
     else if(_slave) {
-        //We are a slave: get the distance to all other users and upload it to Firebase so the master can use it
-        NSLog(@"slave running");
-        NSMutableArray* distances = [self getDistancesToBeacons:beacons];
-        //Send the distance objects off
+        //We are a slave: get the distance to all other users and upload it to
+        //Firebase so the master can use it
+        Firebase* userRef = [_baseRef childByAppendingPath:[NSString stringWithFormat:@"USERS/%@/table", _userId]];
+        count++;
+        [userRef observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            NSString* table = snapshot.value;
+            _tableId = table;
+            NSMutableArray* distances = [self getDistancesToBeacons:beacons forTable:table];
+            //Send the distance objects off
+            if(count == 6)
+                [[[CalcOrderUtil alloc] init] findOrderFromPerson: _userId WithDistances: distances];
+
+        }];
         
         
+    }
+}
+-(void)locationManager: (CLLocationManager*)manager didUpdateHeading:(CLHeading *)newHeading {
+    if(_slave) {
+        NSLog(@"Called heading update");
+        CLLocationDirection currHeading = newHeading.magneticHeading;
+        if(_tableId) {
+            Firebase* tableUsersRef = [_baseRef childByAppendingPath:[NSString stringWithFormat:@"TABLES/%@/%@", _tableId, _userId]];
+                [tableUsersRef updateChildValues:@{@"center_heading": [NSString stringWithFormat:@"%f",currHeading]}] ;
+        }
     }
 }
 
@@ -189,19 +217,21 @@
     return accuracy;
 }
 
--(NSMutableArray*)getDistancesToBeacons: (NSArray*)beacons {
+-(NSMutableArray*)getDistancesToBeacons: (NSArray*)beacons forTable:(NSString*)table{
     NSMutableArray* distances = [[NSMutableArray alloc] init];
+    Firebase* tableUsersRef = [_baseRef childByAppendingPath:[NSString stringWithFormat:@"TABLES/%@/%@", table, _userId]];
     for (CLBeacon* beacon in beacons) {
         int majorValue = beacon.major.integerValue;
         int minorValue = beacon.minor.integerValue;
         NSString* beaconUserId = [NSString stringWithFormat:@"%04i%04i",majorValue, minorValue];
         double distance = [self getDistanceToBeacon:beacon];
-        NSLog(@"Distance to beacon %@ is %f", beaconUserId, distance);
+        //Get heading of beacon here, set it using beaconUserId
+        Firebase* distancesRef = [tableUsersRef childByAppendingPath:@"distances"];
+        [distancesRef updateChildValues: @{beaconUserId: [NSString stringWithFormat:@"%f", distance]}] ;
         UsersDistance* ud = [[UsersDistance alloc] init];
         ud.personA = _userId;
         ud.personB = beaconUserId;
         ud.dist = [NSNumber numberWithDouble:distance];
-        [distances addObject:ud];
     }
     return distances;
 }

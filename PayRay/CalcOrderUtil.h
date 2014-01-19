@@ -11,6 +11,8 @@
 @interface CalcOrderUtil : NSObject
 @property (nonatomic, strong) NSMutableArray* clockwiseOrder;
 
--(NSMutableArray*) findOrderFromPerson: (NSString*) person WithDistances: (NSMutableArray*)distances andOrientations: (NSMutableDictionary*) orientations;
+-(NSMutableArray*) findOrderFromPerson: (NSString*) person WithDistances: (NSMutableArray*)distances;
+-(NSMutableDictionary*) calcDistancesArray: (NSMutableArray*) distances fromPerson: (NSString*) person withPeople: (NSArray*) allPeople;
+-(NSMutableArray*) findNeighborsOf: (NSString*)person usingDistances: (NSDictionary*)distances;
 @end
 

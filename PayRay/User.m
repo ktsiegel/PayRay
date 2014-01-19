@@ -11,15 +11,16 @@
 
 @implementation User
 
-@dynamic email;
-@dynamic name;
-@dynamic uid;
--(id)initWithEmail :(NSString*)email :(NSString*)name :(NSNumber*)uid {
+@synthesize email;
+@synthesize name;
+@synthesize uid;
+
+-(id)initWithEmail :(NSString*)emaila :(NSString*)namea :(NSNumber*)uida {
     if(!(self=[super init]))
         return nil;
-    self.email=email;
-    self.name=name;
-    self.uid=uid;
+    self.email=emaila;
+    self.name=namea;
+    self.uid=uida;
     return self;
 }
 @end

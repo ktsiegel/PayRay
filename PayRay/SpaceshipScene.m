@@ -65,21 +65,21 @@ static const uint32_t peopleCategory = 0x1 << 1;
 {
     self.physicsWorld.contactDelegate = self;
     self.radius=300.0;
-    self.backgroundColor = [SKColor colorWithRed:0 green:0.15 blue:0.6 alpha:1.0];
+    self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.15 alpha:1.0];
     self.scaleMode = SKSceneScaleModeAspectFit;
-    SKColor* youColor=[SKColor colorWithRed:0 green:0.15 blue:0.6 alpha:1.0];
+    SKColor* youColor=[SKColor colorWithRed:0.15 green:0.15 blue:0.8 alpha:1.0];
     
     SKShapeNode *ball=[self newCenterWith:youColor :60 :@"You"];
     [self addChild:ball];
     ball.name=@"You";
-    SKColor* payColor=[SKColor colorWithRed:0.8 green:0.95 blue:1 alpha:1];
+    SKColor* payColor=[SKColor colorWithRed:0.15 green:0.80 blue:.15 alpha:1.0];
     
     self.center=[self newCenterWith:payColor :120 :@"Charge"];
     self.center.position = CGPointMake(self.size.width/2, self.size.height/2);
     self.center.name=@"Charge";
     SKLabelNode * itemTag=[self newNameNode:@"Item"];
     itemTag.position=CGPointMake(0, itemTag.frame.size.height / 2);
-    [ball addChild:itemTag];
+    [self.center addChild:itemTag];
     [self addChild:self.center];
     self.count=0; // # of people who are not you
     self.mode=DEFAULT; // mode of center thing: 0 = ready, 1 = dragging, 2 = touched but not dragged
@@ -117,9 +117,9 @@ static const uint32_t peopleCategory = 0x1 << 1;
     SKShapeNode* ball = [[SKShapeNode alloc] init];
     CGMutablePathRef myPath = CGPathCreateMutable();
     CGPathAddArc(myPath, NULL, 0,0, size, 0, M_PI*2, YES);
-    ball.strokeColor=[SKColor colorWithRed:0 green:0.75 blue:1 alpha:1.0];
+    ball.strokeColor=[SKColor colorWithRed:.80 green:0.15 blue:.15 alpha:1.0];
     ball.path = myPath;
-    ball.fillColor = [SKColor colorWithRed:0 green:0.75 blue:1 alpha:1.0];
+    ball.fillColor = [SKColor colorWithRed:0.80 green:0.15 blue:.15 alpha:1.0];
     ball.position = CGPointMake(x,y);
     SKLabelNode * nameTag=[self newNameNode:name];
     ball.name=name;
@@ -145,7 +145,7 @@ static const uint32_t peopleCategory = 0x1 << 1;
 }
 -(void)popPurchases:(NSMutableArray*) purch{
     self.purchases=purch;
-    ((SKLabelNode*)[self.center childNodeWithName:@"Charge"]).text=[NSString stringWithFormat:@"Item:%@ Charge %@",((RecieptItem*)self.purchases[0]).cost, self.other.name];
+    ((SKLabelNode*)[self.center childNodeWithName:@"Item"]).text=[NSString stringWithFormat:@"Item:%@ Charge %@",((RecieptItem*)self.purchases[0]).cost, self.other.name];
     //[self movePeopleTowardsAngles:angleDict];
 }
 
